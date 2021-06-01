@@ -14,3 +14,16 @@ INSERT INTO pokemones (id,nombre,nivel) VALUES (11,'Pidgeotto',15);
 INSERT INTO pokemones (id,nombre,nivel) VALUES (12,'Pidgeot',25);
 INSERT INTO pokemones (id,nombre,nivel) VALUES (13,'Meowth',6);
 INSERT INTO pokemones (id,nombre,nivel) VALUES (14,'Persian',16);
+
+/* Tabla de habilidades */
+INSERT INTO habilidades (id,nombre) VALUES (0,'Impactrueno');
+INSERT INTO habilidades (id,nombre) VALUES (1,'Volar');
+INSERT INTO habilidades (id,nombre) VALUES (2,'Correr');
+INSERT INTO habilidades (id,nombre) VALUES (3,'Envenenar');
+INSERT INTO habilidades (id,nombre) VALUES (4,'Relampago de Voltajes');
+INSERT INTO habilidades (id,nombre) VALUES (5,'Flexibilidad');
+INSERT INTO habilidades (id,nombre) VALUES (6,'Mar Llamas');
+INSERT INTO habilidades (id,nombre) VALUES (7,'Torrente');
+INSERT INTO habilidades (id,nombre) VALUES (8,'Vista Lince');
+INSERT INTO habilidades (id,nombre) VALUES (9,'Agallas');
+INSERT INTO habilidades (id,nombre) VALUES (10,'Espesura');

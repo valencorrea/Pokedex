@@ -1,24 +1,23 @@
-package com.certant.pokedexRefactorValen.pokemon.entity;
+package com.certant.pokedexRefactorValen.pokemon.atributos.habilidad.entity;
 
-import lombok.Data;
-
+import com.certant.pokedexRefactorValen.pokemon.entity.Pokemon;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
-@Data
 @Entity
-@Table(name = "pokemones")
-public class Pokemon implements Serializable {
+@Table(name = "habilidades")
+public class Habilidad implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
     private String nombre;
-    private Integer nivel;
-    private static final long serialVersionUID = 1L;
 
-    // es buena practica redefinir los metodos
+   /* @ManyToMany(mappedBy = "habilidades")
+    private Set<Pokemon> pokemones;
+    */
     public Long getId() {
         return id;
     }
@@ -39,7 +38,10 @@ public class Pokemon implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Pokemon that = (Pokemon) o;
-        return id.equals(that.id) && nombre.equals(that.nombre) && nivel.equals(that.nivel);
+        Habilidad that = (Habilidad) o;
+        return id.equals(that.id) && nombre.equals(that.nombre);
     }
+
+    private static final long serialVersionUID = 1L;
 }
+
