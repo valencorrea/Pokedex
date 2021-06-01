@@ -1,4 +1,4 @@
-package com.certant.pokedexRefactorValen.pokemon.entidad;
+package com.certant.pokedexRefactorValen.pokemon.entity;
 
 import lombok.Data;
 

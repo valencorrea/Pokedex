@@ -1,7 +1,7 @@
-package com.certant.pokedexRefactorValen.pokemon.servicio;
+package com.certant.pokedexRefactorValen.pokemon.service;
 
-import com.certant.pokedexRefactorValen.pokemon.entidad.Pokemon;
-import com.certant.pokedexRefactorValen.pokemon.repositorio.IPokemonRepositorio;
+import com.certant.pokedexRefactorValen.pokemon.entity.Pokemon;
+import com.certant.pokedexRefactorValen.pokemon.repository.IPokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.Optional;
 public class PokemonService implements IPokemonService {
 
     @Autowired
-    IPokemonRepositorio pokemonRepository;
+    IPokemonRepository pokemonRepository;
 
     @Override
     public List<Pokemon> findAll() {

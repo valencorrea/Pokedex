@@ -1,6 +1,6 @@
-package com.certant.pokedexRefactorValen.pokemon.servicio;
+package com.certant.pokedexRefactorValen.pokemon.service;
 
-import com.certant.pokedexRefactorValen.pokemon.entidad.Pokemon;
+import com.certant.pokedexRefactorValen.pokemon.entity.Pokemon;
 import java.util.List;
 
 public interface IPokemonService {
