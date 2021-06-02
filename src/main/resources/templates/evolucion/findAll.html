@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${title}"></title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+<br/>
+<table >
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>nombre</th>
+    <th>nivel necesario</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="evolucion: ${evoluciones}">
+    <td th:text="${evolucion.getId()}"></td>
+    <td th:text="${evolucion.getNombre()}"></td>
+    <td th:text="${evolucion.getNivelNecesario()}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

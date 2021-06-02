@@ -2,7 +2,6 @@ package com.certant.pokedexRefactorValen.pokemon.atributos.habilidad.service;
 
 import com.certant.pokedexRefactorValen.pokemon.atributos.habilidad.entity.Habilidad;
 import com.certant.pokedexRefactorValen.pokemon.atributos.habilidad.exceptions.HabilidadInvalidIdException;
-
 import java.util.List;
 
 public interface IHabilidadService {

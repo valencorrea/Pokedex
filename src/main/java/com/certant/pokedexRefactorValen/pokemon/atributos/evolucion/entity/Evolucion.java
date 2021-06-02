@@ -12,6 +12,8 @@ public class Evolucion implements Serializable {
     private Long id;
     @Column(nullable = false)
     private String nombre;
+    private Long nivelNecesario;
+    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;
@@ -19,6 +21,14 @@ public class Evolucion implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getNivelNecesario() {
+        return nivelNecesario;
+    }
+
+    public void setNivelNecesario(Long nivelNecesario) {
+        this.nivelNecesario = nivelNecesario;
     }
 
     public String getNombre() {
@@ -34,8 +44,7 @@ public class Evolucion implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Evolucion that = (Evolucion) o;
-        return id.equals(that.id) && nombre.equals(that.nombre);
+        return id.equals(that.id) && nombre.equals(that.nombre) && nivelNecesario.equals(that.nivelNecesario);
     }
 
-    private static final long serialVersionUID = 1L;
 }
