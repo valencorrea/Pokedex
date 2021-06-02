@@ -1,3 +1,5 @@
+/* * * * * * * * * * * Tabla de datos de entidades * * * * * * * * * */
+
 /* Tabla de pokemones */
 INSERT INTO pokemones (id,nombre,nivel) VALUES (0,'Pikachu',1);
 INSERT INTO pokemones (id,nombre,nivel) VALUES (1,'Charmander',2);
@@ -51,3 +53,38 @@ INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (6,'Normal', 1);
 INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (7,'Electrico', 3);
 INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (8,'Tierra', 2);
 INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (9,'Hada', 2);
+
+
+
+/* * * * * * * * * * * Tabla de datos de relaciones entre entidades * * * * * * * * * */
+
+/* Tabla de relación Pokemon con Habilidad*/
+INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (0,0); /* Pikachu - Impactrueno*/
+INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (3,2); /* Ratata - Correr*/
+INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (0,4); /* Pikachu - Impactrueno*/
+INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (1,6); /* Charmander - Mar Llamas*/
+INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (5,6); /* Charmeleon - Mar Llamas*/
+INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (6,6); /* Charizard - Mar Llamas*/
+INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (2,10); /* Bolbasaur - Espesura*/
+INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (7,10); /* Ivasaur - Espesura*/
+INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (8,10); /* Venusaur - Espesura*/
+
+/* Tabla de relación Pokemon con Tipo*/
+INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (0,7); /* Pikachu - Eléctrico*/
+INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (0,6); /* Pikachu - Normal*/
+INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (3,5); /* Ratata - Bicho*/
+INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (3,6); /* Ratata - Normal*/
+INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (1,2); /* Charmander - Fuego*/
+INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (5,2); /* Charmeleon - Fuego*/
+INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (6,2); /* Charizard - Fuego*/
+INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (6,3); /* Charizard - Volador*/
+
+/* Tabla de relación Pokemon con Evolucion*/
+INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (0,6);
+INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (0,3);
+INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (3,1);
+INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (3,8);
+INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (1,4);
+INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (5,3);
+INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (6,9);
+INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (6,2);
