@@ -1,13 +1,10 @@
 package com.certant.pokedexRefactorValen.entrenador.entity;
 
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.entity.Habilidad;
 import com.certant.pokedexRefactorValen.pokemon.entity.Pokemon;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "entrenadores")
@@ -20,11 +17,7 @@ public class Entrenador implements Serializable {
     private String nombre;
     private static final long serialVersionUID = 1L;
 
-    /*@OneToMany(mappedBy = "entrenador")
-    private List<Pokemon> pokemones;
-    */
-
-    @ManyToMany
+    @OneToMany
     @JoinTable(
             name = "entrenador_pokemones",
             joinColumns = {@JoinColumn(name = "entrenador_id")},

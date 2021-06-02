@@ -1,6 +1,8 @@
 package com.certant.pokedexRefactorValen.pokemon.service;
 
 import com.certant.pokedexRefactorValen.pokemon.entity.Pokemon;
+import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonInvalidIdException;
+import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonNotFoundException;
 import com.certant.pokedexRefactorValen.pokemon.repository.IPokemonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,10 +22,29 @@ public class PokemonService implements IPokemonService {
     }
 
     @Override
-    public Pokemon findById(long idPokemon) throws Throwable {
+    public Pokemon findById(long id) throws Throwable {
+        if(id < 0)
+            throw new PokemonInvalidIdException("No se pueden buscar pokemones con IDs negativos");
 
-        Optional<Pokemon> pokemon = pokemonRepository.findById(idPokemon);
+        if(!existsById(id))
+            throw new PokemonNotFoundException("No existe el ID del pokemon solicitado en la base de datos");
+
+        Optional<Pokemon> pokemon = pokemonRepository.findById(id);
         return pokemon.get();
+    }
+
+    @Override
+    public void deleteById(long id) throws Throwable {
+        if(id < 0)
+            throw new PokemonInvalidIdException("No se pueden eliminar pokemones con IDs negativos");
+
+        if(!existsById(id))
+            throw new PokemonNotFoundException("No existe el ID del pokemon solicitado en la base de datos");
+
+    }
+
+    public boolean existsById(long id) {
+        return pokemonRepository.existsById(id);
     }
 
 }
