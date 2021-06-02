@@ -71,6 +71,17 @@ INSERT INTO evoluciones (id,nombre,nivel_necesario, tipo) VALUES (9,'Hada', 2, '
 
 /* * * * * * * * * * * Tabla de datos de relaciones entre entidades * * * * * * * * * */
 
+/* Tabla de relación Entrenador con Pokemon*/
+
+INSERT INTO entrenador_pokemones (entrenador_id,pokemon_id) VALUES (0,6);
+INSERT INTO entrenador_pokemones (entrenador_id,pokemon_id) VALUES (0,3);
+INSERT INTO entrenador_pokemones (entrenador_id,pokemon_id) VALUES (3,1);
+INSERT INTO entrenador_pokemones (entrenador_id,pokemon_id) VALUES (3,8);
+INSERT INTO entrenador_pokemones (entrenador_id,pokemon_id) VALUES (1,4);
+INSERT INTO entrenador_pokemones (entrenador_id,pokemon_id) VALUES (5,3);
+INSERT INTO entrenador_pokemones (entrenador_id,pokemon_id) VALUES (6,9);
+INSERT INTO entrenador_pokemones (entrenador_id,pokemon_id) VALUES (6,2);
+
 /* Tabla de relación Pokemon con Habilidad*/
 
 INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (0,0); /* Pikachu - Impactrueno*/

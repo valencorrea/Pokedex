@@ -1,11 +1,13 @@
 package com.certant.pokedexRefactorValen.entrenador.entity;
 
+import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.entity.Habilidad;
 import com.certant.pokedexRefactorValen.pokemon.entity.Pokemon;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "entrenadores")
@@ -20,6 +22,15 @@ public class Entrenador implements Serializable {
 
     /*@OneToMany(mappedBy = "entrenador")
     private List<Pokemon> pokemones;
+    */
+
+    @ManyToMany
+    @JoinTable(
+            name = "entrenador_pokemones",
+            joinColumns = {@JoinColumn(name = "entrenador_id")},
+            inverseJoinColumns = {@JoinColumn(name = "pokemon_id")}
+    )
+    private List<Pokemon> pokemones;
 
     public List<Pokemon> getPokemones() {
         return this.pokemones;
@@ -27,7 +38,7 @@ public class Entrenador implements Serializable {
 
     public void setPokemones(List<Pokemon> pokemones){
         this.pokemones = pokemones;
-    }*/
+    }
 
     public Long getId() {
         return id;
