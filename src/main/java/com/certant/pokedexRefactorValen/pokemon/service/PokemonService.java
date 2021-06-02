@@ -22,7 +22,7 @@ public class PokemonService implements IPokemonService {
     }
 
     @Override
-    public Pokemon findById(long id) throws Throwable {
+    public Pokemon findById(Long id) throws Throwable {
         if(id < 0)
             throw new PokemonInvalidIdException("No se pueden buscar pokemones con IDs negativos");
 
@@ -34,7 +34,10 @@ public class PokemonService implements IPokemonService {
     }
 
     @Override
-    public void deleteById(long id) throws Throwable {
+    public void deleteById(Long id) throws Throwable {
+        if(id == null)
+            throw new PokemonInvalidIdException("No se pueden eliminar pokemones con IDs null");
+
         if(id < 0)
             throw new PokemonInvalidIdException("No se pueden eliminar pokemones con IDs negativos");
 
@@ -43,7 +46,7 @@ public class PokemonService implements IPokemonService {
 
     }
 
-    public boolean existsById(long id) {
+    public boolean existsById(Long id) {
         return pokemonRepository.existsById(id);
     }
 

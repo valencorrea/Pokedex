@@ -58,4 +58,16 @@ public class PokemonServiceTest {
         assertThrows(PokemonNotFoundException.class, () -> pokemonService.findById((long)90));
     }
 
+    @Test
+    @DisplayName("Un ID no registrado no se encuenrta en la base de datos")
+    void siBuscoUnIdNoRegistradoNoExiste() throws Throwable {
+        assertFalse(pokemonService.existsById((long)15));
+    }
+
+    @Test
+    @DisplayName("No existen pokemones con ID null")
+    void noSePuedenEliminarIdsNull() {
+        assertThrows(PokemonInvalidIdException.class, () ->  pokemonService.deleteById(null));
+    }
+
 }

@@ -6,7 +6,9 @@ import java.util.List;
 public interface IPokemonService {
     List<Pokemon> findAll();
 
-    Pokemon findById(long id) throws Throwable;
+    Pokemon findById(Long id) throws Throwable;
 
-    void deleteById(long id) throws Throwable;
+    void deleteById(Long id) throws Throwable;
+
+    boolean existsById(Long id);
 }
