@@ -28,7 +28,7 @@ INSERT INTO habilidades (id,nombre) VALUES (8,'Vista Lince');
 INSERT INTO habilidades (id,nombre) VALUES (9,'Agallas');
 INSERT INTO habilidades (id,nombre) VALUES (10,'Espesura');
 
-/* Tabla de tipos */
+/* Tabla de Tipos */
 INSERT INTO tipos (id,nombre) VALUES (0,'Planta');
 INSERT INTO tipos (id,nombre) VALUES (1,'Veneno');
 INSERT INTO tipos (id,nombre) VALUES (2,'Fuego');

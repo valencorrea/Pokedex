@@ -1,5 +1,4 @@
 package com.certant.pokedexRefactorValen.pokemon.atributos.habilidad.repository;
-
 import com.certant.pokedexRefactorValen.pokemon.atributos.habilidad.entity.Habilidad;
 import org.springframework.data.repository.CrudRepository;
 
