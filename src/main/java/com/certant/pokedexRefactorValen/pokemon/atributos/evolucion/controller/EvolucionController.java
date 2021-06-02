@@ -12,7 +12,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/pokemon/evolucion")
 public class EvolucionController {
-    /*@Autowired
+    @Autowired
     IEvolucionService evolucionService;
 
     @GetMapping("/")
@@ -21,5 +21,5 @@ public class EvolucionController {
         model.addAttribute("title","Lista de evoluciones");
         model.addAttribute("evoluciones", evoluciones);
         return "evolucion/findAll";
-    }*/
+    }
 }
