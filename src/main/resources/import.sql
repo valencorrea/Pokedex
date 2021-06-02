@@ -41,13 +41,13 @@ INSERT INTO tipos (id,nombre) VALUES (8,'Tierra');
 INSERT INTO tipos (id,nombre) VALUES (9,'Hada');
 
 /* Tabla de evoluciones*/
-INSERT INTO evoluciones (id,nombre,nivelNecesario) VALUES (0,'Super', 4);
-INSERT INTO evoluciones (id,nombre,nivelNecesario) VALUES (1,'Mega', 5);
-INSERT INTO evoluciones (id,nombre,nivelNecesario) VALUES (2,'Hiper', 2);
-INSERT INTO evoluciones (id,nombre,nivelNecesario) VALUES (3,'Super Roja', 8);
-INSERT INTO evoluciones (id,nombre,nivelNecesario) VALUES (4,'Mega verde', 2);
-INSERT INTO evoluciones (id,nombre,nivelNecesario) VALUES (5,'Hiper Blanca', 5);
-INSERT INTO evoluciones (id,nombre,nivelNecesario) VALUES (6,'Normal', 1);
-INSERT INTO evoluciones (id,nombre,nivelNecesario) VALUES (7,'Electrico', 3);
-INSERT INTO evoluciones (id,nombre,nivelNecesario) VALUES (8,'Tierra', 2);
-INSERT INTO evoluciones (id,nombre,nivelNecesario) VALUES (9,'Hada', 2);
+INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (0,'Super', 4);
+INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (1,'Mega', 5);
+INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (2,'Hiper', 2);
+INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (3,'Super Roja', 8);
+INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (4,'Mega verde', 2);
+INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (5,'Hiper Blanca', 5);
+INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (6,'Normal', 1);
+INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (7,'Electrico', 3);
+INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (8,'Tierra', 2);
+INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (9,'Hada', 2);
