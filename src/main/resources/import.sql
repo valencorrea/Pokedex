@@ -1,6 +1,16 @@
 /* * * * * * * * * * * Tabla de datos de entidades * * * * * * * * * */
 
+/* Tabla de entrenadores */
+
+INSERT INTO entrenadores (id,nombre) VALUES(0, 'Ash');
+INSERT INTO entrenadores (id,nombre) VALUES(1, 'Misty');
+INSERT INTO entrenadores (id,nombre) VALUES(2, 'Brock');
+INSERT INTO entrenadores (id,nombre) VALUES(3, 'Rojo');
+INSERT INTO entrenadores (id,nombre) VALUES(4, 'Azul');
+INSERT INTO entrenadores (id,nombre) VALUES(5, 'Oak');
+
 /* Tabla de pokemones */
+
 INSERT INTO pokemones (id,nombre,nivel) VALUES (0,'Pikachu',1);
 INSERT INTO pokemones (id,nombre,nivel) VALUES (1,'Charmander',2);
 INSERT INTO pokemones (id,nombre,nivel) VALUES (2,'Bolbasour',3);
@@ -18,6 +28,7 @@ INSERT INTO pokemones (id,nombre,nivel) VALUES (13,'Meowth',6);
 INSERT INTO pokemones (id,nombre,nivel) VALUES (14,'Persian',16);
 
 /* Tabla de habilidades */
+
 INSERT INTO habilidades (id,nombre) VALUES (0,'Impactrueno');
 INSERT INTO habilidades (id,nombre) VALUES (1,'Volar');
 INSERT INTO habilidades (id,nombre) VALUES (2,'Correr');
@@ -31,6 +42,7 @@ INSERT INTO habilidades (id,nombre) VALUES (9,'Agallas');
 INSERT INTO habilidades (id,nombre) VALUES (10,'Espesura');
 
 /* Tabla de Tipos */
+
 INSERT INTO tipos (id,nombre) VALUES (0,'Planta');
 INSERT INTO tipos (id,nombre) VALUES (1,'Veneno');
 INSERT INTO tipos (id,nombre) VALUES (2,'Fuego');
@@ -43,22 +55,24 @@ INSERT INTO tipos (id,nombre) VALUES (8,'Tierra');
 INSERT INTO tipos (id,nombre) VALUES (9,'Hada');
 
 /* Tabla de evoluciones*/
-INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (0,'Super', 4);
-INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (1,'Mega', 5);
-INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (2,'Hiper', 2);
-INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (3,'Super Roja', 8);
-INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (4,'Mega verde', 2);
-INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (5,'Hiper Blanca', 5);
-INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (6,'Normal', 1);
-INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (7,'Electrico', 3);
-INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (8,'Tierra', 2);
-INSERT INTO evoluciones (id,nombre,nivel_necesario) VALUES (9,'Hada', 2);
+
+INSERT INTO evoluciones (id,nombre,nivel_necesario, tipo) VALUES (0,'Super', 4, 'fuego');
+INSERT INTO evoluciones (id,nombre,nivel_necesario, tipo) VALUES (1,'Mega', 5, 'agua');
+INSERT INTO evoluciones (id,nombre,nivel_necesario, tipo) VALUES (2,'Hiper', 2, 'tierra');
+INSERT INTO evoluciones (id,nombre,nivel_necesario, tipo) VALUES (3,'Super Roja', 8, 'tierra');
+INSERT INTO evoluciones (id,nombre,nivel_necesario, tipo) VALUES (4,'Mega verde', 2, 'aire');
+INSERT INTO evoluciones (id,nombre,nivel_necesario, tipo) VALUES (5,'Hiper Blanca', 5, 'agua');
+INSERT INTO evoluciones (id,nombre,nivel_necesario, tipo) VALUES (6,'Normal', 1, 'nieve');
+INSERT INTO evoluciones (id,nombre,nivel_necesario, tipo) VALUES (7,'Electrico', 3, 'tierra');
+INSERT INTO evoluciones (id,nombre,nivel_necesario, tipo) VALUES (8,'Tierra', 2, 'viento');
+INSERT INTO evoluciones (id,nombre,nivel_necesario, tipo) VALUES (9,'Hada', 2, 'agua');
 
 
 
 /* * * * * * * * * * * Tabla de datos de relaciones entre entidades * * * * * * * * * */
 
 /* Tabla de relación Pokemon con Habilidad*/
+
 INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (0,0); /* Pikachu - Impactrueno*/
 INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (3,2); /* Ratata - Correr*/
 INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (0,4); /* Pikachu - Impactrueno*/
@@ -70,6 +84,7 @@ INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (7,10); /* Ivasau
 INSERT INTO pokemon_habilidad (pokemon_id,habilidad_id) VALUES (8,10); /* Venusaur - Espesura*/
 
 /* Tabla de relación Pokemon con Tipo*/
+
 INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (0,7); /* Pikachu - Eléctrico*/
 INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (0,6); /* Pikachu - Normal*/
 INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (3,5); /* Ratata - Bicho*/
@@ -80,6 +95,7 @@ INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (6,2); /* Charizard - Fuego
 INSERT INTO pokemon_tipo (pokemon_id,tipo_id) VALUES (6,3); /* Charizard - Volador*/
 
 /* Tabla de relación Pokemon con Evolucion*/
+
 INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (0,6);
 INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (0,3);
 INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (3,1);

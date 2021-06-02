@@ -23,6 +23,4 @@ public class PokemonController {
         model.addAttribute("pokemones", pokemones);
         return "pokemon/findAll";
     }
-
-
 }

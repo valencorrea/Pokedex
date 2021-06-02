@@ -12,6 +12,8 @@ public class Evolucion implements Serializable {
     private Long id;
     @Column(nullable = false)
     private String nombre;
+    @Column(nullable = false)
+    private String tipo;
     private Long nivelNecesario;
     private static final long serialVersionUID = 1L;
 
@@ -21,6 +23,14 @@ public class Evolucion implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTipoEvolucion() {
+        return tipo;
+    }
+
+    public void setTipoEvolucion(String tipo) {
+        this.tipo = tipo;
     }
 
     public Long getNivelNecesario() {
