@@ -2,7 +2,6 @@ package com.certant.pokedexRefactorValen.pokemon.service;
 
 import com.certant.pokedexRefactorValen.pokemon.entity.Pokemon;
 import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonInvalidIdException;
-import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonInvalidNameException;
 import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonInvalidPointerException;
 import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonNotFoundException;
 import org.junit.jupiter.api.BeforeAll;

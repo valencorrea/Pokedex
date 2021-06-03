@@ -1,6 +1,8 @@
 package com.certant.pokedexRefactorValen.entrenador.service;
 
+import com.certant.pokedexRefactorValen.entrenador.entity.Entrenador;
 import com.certant.pokedexRefactorValen.entrenador.exceptions.EntrenadorInvalidIdException;
+import com.certant.pokedexRefactorValen.entrenador.exceptions.EntrenadorInvalidPointerException;
 import com.certant.pokedexRefactorValen.entrenador.exceptions.EntrenadorNotFoundException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -8,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -73,13 +77,61 @@ class EntrenadorServiceTest {
     }
 
 
+    /* * * * * * * * * * Pruebas con parametros null * * * * * * * * * */
 
-    /* * * * * * * * * * Pruebo las funciones con comportamiento esperado  * * * * * * * * * */
+    @Test
+    @DisplayName("No puedo guardar un entrenador null")
+    void siGuardoUnEntrenadorNullArrojaError() throws Throwable {
+        assertThrows(EntrenadorInvalidPointerException.class, () ->  entrenadorService.save(null));
+    }
+
+
+    /* * * * * * * * * * Pruebas de funcionamiento esperado * * * * * * * * * */
 
     @Test
     @DisplayName("Un ID cargado existe en la base de datos")
     void unIdCargadoExisteEnBase() throws Throwable {
         assertTrue(entrenadorService.existsById((long)1));
+    }
+
+    @Test
+    @DisplayName("Luego de eliminar un ID desaparece de la base de datos")
+    void siEliminoUnEntrenadorDesapareceDeLaBaseDeDatos() throws Throwable {
+        entrenadorService.deleteById((long)1);
+        assertFalse(entrenadorService.existsById((long)1));
+    }
+
+    @Test
+    @DisplayName("Un Id cargado existe en la base de datos")
+    void siCargueUnIdExisteEnLaBaseDeDatos() throws Throwable {
+        assertTrue(entrenadorService.existsById((long)1));
+    }
+
+    @Test
+    @DisplayName("Si guardo un entrenador sus parametros coinciden con los que ingrese")
+    void siGuardoUnEntrenadorSeGuardaEnLaBase() throws Throwable {
+        Entrenador entrenador = new Entrenador();
+        entrenador.setNombre("un entrenador");
+        Entrenador entrenadorGuardado = entrenadorService.save(entrenador);
+
+        assertEquals(entrenador.getNombre(), entrenadorGuardado.getNombre());
+        assertEquals(entrenador.getId(), entrenadorGuardado.getId());
+
+    }
+
+    @Test
+    @DisplayName("Si guardo un entrenador se incrementa la candidad en la base de datos")
+    void siGuardoUnEntrenadorSeIncrementaLaCantidadEnLaBase() throws Throwable {
+        List<Entrenador> entrenadores = entrenadorService.findAll();
+        int cantidadInicial = entrenadores.size();
+
+        Entrenador entrenador = new Entrenador();
+        entrenador.setNombre("un entrenador");
+
+        entrenadorService.save(entrenador);
+        entrenadores = entrenadorService.findAll();;
+
+        assertEquals(entrenadores.size(), cantidadInicial+1);
     }
 
 }

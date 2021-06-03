@@ -2,10 +2,12 @@ package com.certant.pokedexRefactorValen.entrenador.service;
 
 import com.certant.pokedexRefactorValen.entrenador.entity.Entrenador;
 import com.certant.pokedexRefactorValen.entrenador.exceptions.EntrenadorInvalidIdException;
+import com.certant.pokedexRefactorValen.entrenador.exceptions.EntrenadorInvalidNameException;
+import com.certant.pokedexRefactorValen.entrenador.exceptions.EntrenadorInvalidPointerException;
 import com.certant.pokedexRefactorValen.entrenador.exceptions.EntrenadorNotFoundException;
 import com.certant.pokedexRefactorValen.entrenador.repository.IEntrenadorRepository;
-import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonInvalidIdException;
-import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonNotFoundException;
+import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonInvalidNameException;
+import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonInvalidPointerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +48,23 @@ public class EntrenadorService implements IEntrenadorService{
             throw new EntrenadorNotFoundException("No existe el ID del entrenador solicitado en la base de datos");
 
         entrenadorRepository.deleteById(id);
+    }
+
+    @Override
+    public Entrenador save(Entrenador entrenador) throws Throwable {
+        validarEntrenador(entrenador);
+        return entrenadorRepository.save(entrenador);
+    }
+
+    private void validarEntrenador(Entrenador entrenador) throws Throwable {
+        if (entrenador == null)
+            throw new EntrenadorInvalidPointerException("No se puede trabajar con una direccion de memoria invalida");
+
+        if(entrenador.getNombre() == null)
+            throw new EntrenadorInvalidNameException("No se puede trabajar con un nombre invalido");
+
+        if (entrenador.getNombre().isEmpty())
+            throw new EntrenadorInvalidNameException("No se puede trabajar con un nombre invalido");
     }
 
     private void validarId(Long id) throws Throwable {
