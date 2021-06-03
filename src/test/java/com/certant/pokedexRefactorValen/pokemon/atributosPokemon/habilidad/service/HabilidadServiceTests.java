@@ -1,4 +1,5 @@
 package com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.service;
+import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.entity.Habilidad;
 import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.exceptions.HabilidadInvalidIdException;
 import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.exceptions.HabilidadInvalidPointerException;
 import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.exceptions.HabilidadNotFoundException;
@@ -8,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -76,21 +79,21 @@ public class HabilidadServiceTests {
 
 
     /* * * * * * * * * * Pruebas con parametros null * * * * * * * * * */
-/*
+
     @Test
     @DisplayName("No puedo guardar una habilidad null")
     void siGuardoUnaHabilidadNullArrojaError() throws Throwable {
         assertThrows(HabilidadInvalidPointerException.class, () ->  habilidadService.save(null));
     }
-*/
+
 
     /* * * * * * * * * * Pruebas de funcionamiento esperado * * * * * * * * * */
-/*
+
     @Test
     @DisplayName("Luego de eliminar un ID desaparece de la base de datos")
     void siEliminoUnaHabilidadDesapareceDeLaBaseDeDatos() throws Throwable {
-        habilidadService.deleteById((long)14);
-        assertFalse(habilidadService.existsById((long)14));
+        habilidadService.deleteById((long)1);
+        assertFalse(habilidadService.existsById((long)1));
     }
 
     @Test
@@ -124,6 +127,6 @@ public class HabilidadServiceTests {
         habilidades = habilidadService.findAll();;
 
         assertEquals(habilidades.size(), cantidadInicial+1);
-    }*/
+    }
 
 }

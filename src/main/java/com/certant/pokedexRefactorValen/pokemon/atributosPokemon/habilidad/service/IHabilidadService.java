@@ -15,6 +15,6 @@ public interface IHabilidadService {
 
     boolean existsById(Long id) throws Throwable;
 
-    Habilidad save(Habilidad habilidad);
+    Habilidad save(Habilidad habilidad) throws Throwable;
 
 }
