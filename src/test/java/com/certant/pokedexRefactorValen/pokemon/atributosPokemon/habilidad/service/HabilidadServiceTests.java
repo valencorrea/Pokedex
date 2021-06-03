@@ -1,21 +1,15 @@
-package com.certant.pokedexRefactorValen.pokemon.atributos.habilidad.service;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.entity.Habilidad;
+package com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.service;
 import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.exceptions.HabilidadInvalidIdException;
 import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.exceptions.HabilidadInvalidPointerException;
 import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.exceptions.HabilidadNotFoundException;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.repository.IHabilidadRepository;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.service.IHabilidadService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureBefore;
-import org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
-import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //@AutoConfigureBefore(CacheAutoConfiguration.class)
 @DataJpaTest
@@ -31,7 +25,7 @@ public class HabilidadServiceTests {
 
 
     /* * * * * * * * * * Pruebo las funciones con IDs negativos  * * * * * * * * * */
-/*
+
     @Test
     @DisplayName("No puedo buscar habilidades con IDs negativos")
     void siQuieroBuscarUnaHabilidadConIdNegativoArrojaError(){
@@ -52,10 +46,10 @@ public class HabilidadServiceTests {
         assertThrows(HabilidadInvalidIdException.class, () ->  habilidadService.existsById((long) -1));
 
     }
-*/
+
 
     /* * * * * * * * * * Pruebo las funciones con IDs inexistentes * * * * * * * * * */
-/*
+
     @Test
     @DisplayName("No puedo eliminar un ID inexistente")
     void siQuieroEliminarIdInexistenteArrojaError(){
@@ -79,7 +73,7 @@ public class HabilidadServiceTests {
     void noSePuedenEliminarIdsNull() {
         assertThrows(HabilidadInvalidIdException.class, () ->  habilidadService.deleteById(null));
     }
-*/
+
 
     /* * * * * * * * * * Pruebas con parametros null * * * * * * * * * */
 /*

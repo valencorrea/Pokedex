@@ -1,19 +1,9 @@
-package com.certant.pokedexRefactorValen.pokemon.atributos.tipo.service;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.service.IHabilidadService;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.tipo.exception.TipoInvalidIdException;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.tipo.exception.TipoInvalidPointerException;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.tipo.exception.TipoNotFoundException;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.tipo.service.ITipoService;
+package com.certant.pokedexRefactorValen.pokemon.atributosPokemon.tipo.service;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureBefore;
-import org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
-import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //@AutoConfigureBefore(CacheAutoConfiguration.class)
