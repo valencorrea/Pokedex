@@ -17,7 +17,7 @@ public class Entrenador implements Serializable {
     private String nombre;
     private static final long serialVersionUID = 1L;
 
-    @OneToMany
+    @ManyToMany
     @JoinTable(
             name = "entrenador_pokemones",
             joinColumns = {@JoinColumn(name = "entrenador_id")},

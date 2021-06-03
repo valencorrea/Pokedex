@@ -1,10 +1,9 @@
-package com.certant.pokedexRefactorValen.pokemon.atributos.habilidad.service;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.entity.Habilidad;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.exceptions.HabilidadInvalidIdException;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.exceptions.HabilidadInvalidPointerException;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.exceptions.HabilidadNotFoundException;
-import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.repository.IHabilidadRepository;
+package com.certant.pokedexRefactorValen.pokemon.atributos.tipo.service;
 import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.service.IHabilidadService;
+import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.tipo.exception.TipoInvalidIdException;
+import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.tipo.exception.TipoInvalidPointerException;
+import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.tipo.exception.TipoNotFoundException;
+import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.tipo.service.ITipoService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,36 +19,36 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 //@AutoConfigureBefore(CacheAutoConfiguration.class)
 @DataJpaTest
 @ComponentScan
-public class HabilidadServiceTests {
+public class TipoServiceTest {
 
     @BeforeAll
     static void beforeAll() {
     }
 
     @Autowired
-    IHabilidadService habilidadService;
+    ITipoService tipoService;
 
 
     /* * * * * * * * * * Pruebo las funciones con IDs negativos  * * * * * * * * * */
 /*
     @Test
-    @DisplayName("No puedo buscar habilidades con IDs negativos")
-    void siQuieroBuscarUnaHabilidadConIdNegativoArrojaError(){
-        assertThrows(HabilidadInvalidIdException.class, () ->  habilidadService.findById((long) -1));
+    @DisplayName("No puedo buscar tipos con IDs negativos")
+    void siQuieroBuscarUnTipoConIdNegativoArrojaError(){
+        assertThrows(TipoInvalidIdException.class, () ->  tipoService.findById((long) -1));
 
     }
 
     @Test
-    @DisplayName("No puedo eliminar habilidades con IDs negativos")
-    void siQuieroEliminarUnaHabilidadConIdNegativoArrojaError(){
-        assertThrows(HabilidadInvalidIdException.class, () ->  habilidadService.deleteById((long) -1));
+    @DisplayName("No puedo eliminar tipos con IDs negativos")
+    void siQuieroEliminarUnTipoConIdNegativoArrojaError(){
+        assertThrows(TipoInvalidIdException.class, () ->  tipoService.deleteById((long) -1));
 
     }
 
     @Test
     @DisplayName("No existen IDs negativos")
-    void siQuieroVerificarExistenciaUnaHabilidadConIdNegativoArrojaError(){
-        assertThrows(HabilidadInvalidIdException.class, () ->  habilidadService.existsById((long) -1));
+    void siQuieroVerificarExistenciaUnTipoConIdNegativoArrojaError(){
+        assertThrows(TipoInvalidIdException.class, () ->  tipoService.existsById((long) -1));
 
     }
 */
@@ -59,34 +58,34 @@ public class HabilidadServiceTests {
     @Test
     @DisplayName("No puedo eliminar un ID inexistente")
     void siQuieroEliminarIdInexistenteArrojaError(){
-        assertThrows(HabilidadNotFoundException.class, () -> habilidadService.deleteById((long)90));
+        assertThrows(TipoNotFoundException.class, () -> tipoService.deleteById((long)90));
     }
 
     @Test
     @DisplayName("No puedo buscar un ID inexistente")
     void siQuieroBuscarIdInexistenteArrojaError(){
-        assertThrows(HabilidadNotFoundException.class, () -> habilidadService.findById((long)90));
+        assertThrows(TipoNotFoundException.class, () -> tipoService.findById((long)90));
     }
 
     @Test
-    @DisplayName("Un ID no registrado no se encuenrta en la base de datos")
+    @DisplayName("Un ID no registrado no se encuentra en la base de datos")
     void siBuscoUnIdNoRegistradoNoExiste() throws Throwable {
-        assertFalse(habilidadService.existsById((long)15));
+        assertFalse(tipoService.existsById((long)15));
     }
 
     @Test
-    @DisplayName("No existen habilidades con ID null")
+    @DisplayName("No existen tipos con ID null")
     void noSePuedenEliminarIdsNull() {
-        assertThrows(HabilidadInvalidIdException.class, () ->  habilidadService.deleteById(null));
+        assertThrows(TipoInvalidIdException.class, () ->  tipoService.deleteById(null));
     }
 */
 
     /* * * * * * * * * * Pruebas con parametros null * * * * * * * * * */
-/*
-    @Test
-    @DisplayName("No puedo guardar una habilidad null")
-    void siGuardoUnaHabilidadNullArrojaError() throws Throwable {
-        assertThrows(HabilidadInvalidPointerException.class, () ->  habilidadService.save(null));
+
+/*    @Test
+    @DisplayName("No puedo guardar un tipo null")
+    void siGuardoUnTipoNullArrojaError() throws Throwable {
+        assertThrows(TipoInvalidPointerException.class, () ->  tipoService.save(null));
     }
 */
 
@@ -130,6 +129,6 @@ public class HabilidadServiceTests {
         habilidades = habilidadService.findAll();;
 
         assertEquals(habilidades.size(), cantidadInicial+1);
-    }*/
-
+    }
+*/
 }
