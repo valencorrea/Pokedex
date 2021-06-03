@@ -13,9 +13,8 @@ public interface IHabilidadService {
 
     void deleteById(Long id) throws Throwable;
 
-    boolean existsById(Long id) throws HabilidadInvalidIdException;
+    boolean existsById(Long id) throws Throwable;
 
     Habilidad save(Habilidad habilidad);
 
-    Habilidad update(Habilidad habilidad);
 }

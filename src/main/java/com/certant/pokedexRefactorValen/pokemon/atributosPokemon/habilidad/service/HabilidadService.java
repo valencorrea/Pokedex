@@ -48,7 +48,7 @@ public class HabilidadService implements IHabilidadService{
     }
 
     @Override
-    public boolean existsById(Long id) throws HabilidadInvalidIdException {
+    public boolean existsById(Long id) throws Throwable {
         if((id==null) || (id<0)){
             throw new HabilidadInvalidIdException("Invalid ID");
         }
@@ -60,16 +60,4 @@ public class HabilidadService implements IHabilidadService{
         return habilidadRepository.save(habilidad);
     }
 
-    @Override
-    public Habilidad update(Habilidad habilidad) {
-        if(habilidad.getNombre()==null || habilidad.getNombre().isEmpty()){
-            try {
-                throw new HabilidadInvalidNameException("Nombre no valido");
-            } catch (HabilidadInvalidNameException ex) {
-                Logger.getLogger(HabilidadService.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        return habilidadRepository.save(habilidad);
-    }
 }
