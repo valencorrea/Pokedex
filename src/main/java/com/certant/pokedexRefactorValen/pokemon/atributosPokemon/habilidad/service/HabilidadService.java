@@ -12,8 +12,10 @@ import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.excep
 import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.exceptions.HabilidadNotFoundException;
 import com.certant.pokedexRefactorValen.pokemon.atributosPokemon.habilidad.repository.IHabilidadRepository;
 import com.certant.pokedexRefactorValen.pokemon.entity.Pokemon;
+import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonInvalidIdException;
 import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonInvalidNameException;
 import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonInvalidPointerException;
+import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,13 +36,20 @@ public class HabilidadService implements IHabilidadService{
 
     @Override
     public Habilidad findById(Long id) throws Throwable {
-        if(!existsById(id)){
-            throw new HabilidadNotFoundException("Id not found");
-        }
+        validarId(id);
+        if(!existsById(id))
+            throw new HabilidadNotFoundException("No existe el ID de la habilidad solicitada en la base de datos");
+
         Optional<Habilidad> habilidad = habilidadRepository.findById(id);
-        if (habilidad.isEmpty())
-            throw new HabilidadNotFoundException("Ability not found");
         return habilidad.get();
+    }
+
+    private void validarId(Long id) throws Throwable {
+        if(id == null)
+            throw new HabilidadInvalidIdException("No se puede trabajar con IDs null");
+
+        if(id < 0)
+            throw new HabilidadInvalidIdException("No se puede trabajar con IDs negativos");
     }
 
     @Override
@@ -53,9 +62,7 @@ public class HabilidadService implements IHabilidadService{
 
     @Override
     public boolean existsById(Long id) throws Throwable {
-        if((id==null) || (id<0)){
-            throw new HabilidadInvalidIdException("Invalid ID");
-        }
+        validarId(id);
         return habilidadRepository.existsById(id);
     }
 
