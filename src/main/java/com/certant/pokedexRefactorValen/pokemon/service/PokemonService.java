@@ -30,7 +30,10 @@ public class PokemonService implements IPokemonService {
         if (pokemon == null)
             throw new PokemonInvalidPointerException("No se puede trabajar con una direccion de memoria invalida");
 
-        if(pokemon.getNombre()==null || pokemon.getNombre().isEmpty())
+        if(pokemon.getNombre() == null)
+            throw new PokemonInvalidNameException("No se puede trabajar con un nombre invalido");
+
+        if (pokemon.getNombre().isEmpty())
             throw new PokemonInvalidNameException("No se puede trabajar con un nombre invalido");
     }
 

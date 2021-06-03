@@ -88,12 +88,6 @@ public class PokemonServiceTest {
         assertThrows(PokemonInvalidPointerException.class, () ->  pokemonService.save(null));
     }
 
-    @Test
-    @DisplayName("No puedo actualizar un pokemon a un nombre null")
-    void siActualizoElNombreDeUnPokemonANullArrojaError() {
-        assertThrows(PokemonInvalidNameException.class, () ->  pokemonService.update(null));
-    }
-
 
     /* * * * * * * * * * Pruebas de funcionamiento esperado * * * * * * * * * */
 
