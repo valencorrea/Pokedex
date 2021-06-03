@@ -12,5 +12,5 @@ public interface IEntrenadorService {
 
     Entrenador findById(Long id) throws Throwable;
 
-    void deleteById(long id) throws Throwable;
+    void deleteById(Long id) throws Throwable;
 }

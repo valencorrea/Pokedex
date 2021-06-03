@@ -1,8 +1,7 @@
 package com.certant.pokedexRefactorValen.entrenador.service;
 
-import com.certant.pokedexRefactorValen.entrenador.entity.Entrenador;
 import com.certant.pokedexRefactorValen.entrenador.exceptions.EntrenadorInvalidIdException;
-import com.certant.pokedexRefactorValen.pokemon.exceptions.PokemonInvalidIdException;
+import com.certant.pokedexRefactorValen.entrenador.exceptions.EntrenadorNotFoundException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
 
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 @ComponentScan
@@ -47,6 +43,33 @@ class EntrenadorServiceTest {
     void siQuieroVerificarExistenciaUnPokemonConIdNegativoArrojaError(){
         assertThrows(EntrenadorInvalidIdException.class, () ->  entrenadorService.existsById((long) -1));
 
+    }
+
+
+    /* * * * * * * * * * Pruebo las funciones con IDs inexistentes * * * * * * * * * */
+
+    @Test
+    @DisplayName("No puedo eliminar un ID inexistente")
+    void siQuieroEliminarIdInexistenteArrojaError(){
+        assertThrows(EntrenadorNotFoundException.class, () -> entrenadorService.deleteById((long)90));
+    }
+
+    @Test
+    @DisplayName("No puedo buscar un ID inexistente")
+    void siQuieroBuscarIdInexistenteArrojaError(){
+        assertThrows(EntrenadorNotFoundException.class, () -> entrenadorService.findById((long)90));
+    }
+
+    @Test
+    @DisplayName("Un ID no registrado no se encuenrta en la base de datos")
+    void siBuscoUnIdNoRegistradoNoExiste() throws Throwable {
+        assertFalse(entrenadorService.existsById((long)15));
+    }
+
+    @Test
+    @DisplayName("No existen entrenadores con ID null")
+    void noSePuedenEliminarIdsNull() {
+        assertThrows(EntrenadorInvalidIdException.class, () -> entrenadorService.deleteById(null));
     }
 
 

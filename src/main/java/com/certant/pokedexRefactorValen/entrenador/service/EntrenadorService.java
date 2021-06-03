@@ -32,12 +32,16 @@ public class EntrenadorService implements IEntrenadorService{
     @Override
     public Entrenador findById(Long id) throws Throwable {
         validarId(id);
+        if(!existsById(id))
+            throw new EntrenadorNotFoundException("No existe el ID del entrenador solicitado en la base de datos");
+
         Optional<Entrenador> entrenador = entrenadorRepository.findById(id);
         return entrenador.get();
     }
 
     @Override
-    public void deleteById(long id) throws Throwable {
+    public void deleteById(Long id) throws Throwable {
+        validarId(id);
         if(!existsById(id))
             throw new EntrenadorNotFoundException("No existe el ID del entrenador solicitado en la base de datos");
 
