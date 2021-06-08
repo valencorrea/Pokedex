@@ -2,7 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <!-- <script src="codigo.js"></script> -->
     <title>Login</title>
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script><!--con esto agrego jquery-->
+    <script type="text/javascript">
+        alert("Bienvenidos a la Pokedex :)");
+    </script>
 </head>
 <body>
   <h1>Login</h1>
@@ -12,7 +20,8 @@
   <br/>
   <label for="password">Password:</label>
     <input type="password" name="password" id="password" title="Password must be 8 characters including 1 uppercase letter, 1 lowercase letter and numeric characters" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
-  <input type="submit" value="Login" />
+    <input id="botoningreso" type="submit" value="Login" />
+    <!-- <button>boton</button> -->
 </form>
 </body>
 </html>
