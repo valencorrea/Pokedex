@@ -8,12 +8,30 @@
             src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script><!--con esto agrego jquery-->
+
     <script type="text/javascript">
-        alert("Bienvenidos a la Pokedex :)");
+        $(document).ready(function(){
+            alert("Bienvenidos a la Pokedex :)");
+        });
     </script>
+
 </head>
 <body>
-  <h1>Login</h1>
+    <h1>Login</h1>
+
+    <button id="mostrar">mostrar titulo</button>
+    <button id="ocultar">ocultar titulo</button>
+    <script>
+        $(document).ready(function(){
+            $("#ocultar").click(function(){
+                $("h1").hide();
+            });
+            $("#mostrar").click(function(){
+                $("h1").show();
+            });
+        });
+    </script>
+
 <form method="post" th:action="@{/login}">
   <label for="username">Username:</label>
   <input type="text" name="username" id="username"/>
