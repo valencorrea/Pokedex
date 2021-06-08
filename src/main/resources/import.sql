@@ -115,3 +115,22 @@ INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (1,4);
 INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (5,3);
 INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (6,9);
 INSERT INTO pokemon_evolucion (pokemon_id,evolucion_id) VALUES (6,2);
+
+/* Tabla usuario, los password son sus nombres en minuscula*/
+INSERT INTO usuario (id_usuario,username,password) VALUES(0,'Ash','$2a$10$J48qUsJ7jTEJ/o34VArStuB03vH5ViNW4VeQNQ5Q09Ubfs31Qie/W');
+INSERT INTO usuario (id_usuario,username,password) VALUES(1,'Misty','$2a$10$Smyu8h.vyw7k2uOEb24hzuSFY6K4BSIfxYkc1l7.Jypqt6k4OKMTK');
+INSERT INTO usuario (id_usuario,username,password) VALUES(2,'Brock','$2a$10$SmvUK2LMZWWk0EmW4UVsausJzFFPF3eKEUIRBXkB89z4cgE56pWN2');
+INSERT INTO usuario (id_usuario,username,password) VALUES(3,'Rojo','$2a$10$n/vjNUu.uu09TtapT5OdtOg0eU4SQOxNtqUEoRpE2GTKb6/6I8LOu');
+INSERT INTO usuario (id_usuario,username,password) VALUES(4,'Azul','$2a$10$UgQIHqQ4iyDQxlDE12W.OeeR52dwkwjw9dSxZorbosiJHOBqoSshK');
+INSERT INTO usuario (id_usuario,username,password) VALUES(5,'Oak','$2a$10$IybBDnhyGJaPgXcu.7E/CucErjvN1N0ae3C1zhEhf6jVmuCHuUE5u');
+INSERT INTO usuario (id_usuario,username,password) VALUES(6,'Admin','$2a$10$28nrzu3BFOQN5hk.anOc.uc7faO0pGtntvQ351QGWrgrXHFyYjK4u');
+
+/*  Tabla rol, el admin tiene dos roles USER y ADMIN*/
+INSERT INTO rol (id_rol,nombre,id_usuario) VALUES(0,'ROLE_USER',0);
+INSERT INTO rol (id_rol,nombre,id_usuario) VALUES(1,'ROLE_USER',1);
+INSERT INTO rol (id_rol,nombre,id_usuario) VALUES(2,'ROLE_USER',2);
+INSERT INTO rol (id_rol,nombre,id_usuario) VALUES(3,'ROLE_USER',3);
+INSERT INTO rol (id_rol,nombre,id_usuario) VALUES(4,'ROLE_USER',4);
+INSERT INTO rol (id_rol,nombre,id_usuario) VALUES(5,'ROLE_USER',5);
+INSERT INTO rol (id_rol,nombre,id_usuario) VALUES(6,'ROLE_USER',6);
+INSERT INTO rol (id_rol,nombre,id_usuario) VALUES(7,'ROLE_ADMIN',6);
