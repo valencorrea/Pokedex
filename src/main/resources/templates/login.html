@@ -9,9 +9,9 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script><!--con esto agrego jquery-->
 
-    <script type="text/javascript">
+    <script typ="text/javascript">
         $(document).ready(function(){
-            alert("Bienvenidos a la Pokedex :)");
+            alert("Debe iniciar sesion para continuar");
         });
     </script>
 
@@ -32,6 +32,22 @@
         });
     </script>
 
+    <!-- <script>
+        $(document).ready(function(){
+            $("#botonverificar").click(function(){
+                alert("Usuario:" + $(username).text());
+            });
+        });
+    </script> -->
+
+    <script>
+    $(document).ready(function(){
+      $("#boton").click(function(){
+        alert($("#test").val() + " es un usuario valido");
+      });
+    });
+  </script>
+
 <form method="post" th:action="@{/login}">
   <label for="username">Username:</label>
   <input type="text" name="username" id="username"/>
@@ -41,5 +57,10 @@
     <input id="botoningreso" type="submit" value="Login" />
     <!-- <button>boton</button> -->
 </form>
+
+    <!-- <button id="botonverificar">Verificar usuario</button> -->
+    <input type="text" id="test" value="ingresar nombre usuario">
+    <button id="boton">Verificar usuario</button>
+
 </body>
 </html>

@@ -6,13 +6,25 @@
   <script
           src="https://code.jquery.com/jquery-3.6.0.min.js"
           integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-          crossorigin="anonymous"></script><!--con esto agrego jquery-->
-  <script>
+          crossorigin="anonymous">
+  </script><!--con esto agrego jquery-->
+  <link rel="stylesheet" href="estilos.css">
+  <!-- <script>
     $(document).ready(function(){
-      alert("hola");
+      alert("entrando a la seccion de pokemones");
     });
-  </script><!--con esto tiro un mensaje -->
+  </script> -->
+  <!-- <script>
+    $(document).ready(function(){
+        $("#pokemon").hover(function(){
+          $("#pokemon").addClass('resaltar');
+        });
 
+        $("#pokemon").mouseleave(function(){
+          $("#pokemon").removeClass('resaltar');
+        });
+    });
+    </script> -->
 </head>
 <body>
 <h1 th:text="${title}"></h1>
@@ -26,11 +38,12 @@
   </tr>
   </thead>
   <tbody>
-  <tr th:each="pokemon: ${pokemones}">
-    <td th:text="${pokemon.getId()}"></td>
-    <td th:text="${pokemon.getNombre()}"></td>
-    <td th:text="${pokemon.getNivel()}"></td>
+      <tr th:each="pokemon: ${pokemones}">
+        <td th:text="${pokemon.getId()}"></td>
+        <td th:text="${pokemon.getNombre()}"></td>
+        <td th:text="${pokemon.getNivel()}"></td>
   </tr>
+
   </tbody>
 
 </table>
