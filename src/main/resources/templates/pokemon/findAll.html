@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title th:text="${title}"></title>
-  <script
-          src="https://code.jquery.com/jquery-3.6.0.min.js"
-          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-          crossorigin="anonymous">
-  </script><!--con esto agrego jquery-->
   <!-- <script>
     $(document).ready(function(){
       alert("entrando a la seccion de pokemones");
@@ -26,26 +22,75 @@
     });
     </script> -->
 </head>
-<body>
-<h1 th:text="${title}"></h1>
-<br/>
-<table>
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>NOMBRE</th>
-    <th>NIVEL DE ARRIBO</th>
-  </tr>
-  </thead>
-  <tbody>
-      <tr th:each="pokemon: ${pokemones}">
-        <td th:text="${pokemon.getId()}"></td>
-        <td th:text="${pokemon.getNombre()}"></td>
-        <td th:text="${pokemon.getNivel()}"></td>
-  </tr>
 
-  </tbody>
+  <body>
 
-</table>
-</body>
+  <script>
+  function pintar(objeto,col){
+    objeto.style.backgroundColor=col;
+  }
+  </script>
+
+    <h1 th:text="${title}"></h1>
+    <br/>
+    <table>
+      <thead>
+        <tr>
+          <th onmouseover="pintar(this,'#ffe0e9')"
+              onmouseout="pintar(this,'#fff')">
+            ID</th>
+
+          <th onmouseover="pintar(this,'#ffe0e9')"
+              onmouseout="pintar(this,'#fff')">
+            NOMBRE</th>
+
+          <th onmouseover="pintar(this,'#ffe0e9')"
+              onmouseout="pintar(this,'#fff')">
+            NIVEL DE ARRIBO</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr th:each="pokemon: ${pokemones}">
+          <td th:text="${pokemon.getId()}"></td>
+          <td th:text="${pokemon.getNombre()}"></td>
+          <td th:text="${pokemon.getNivel()}"></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+  </script><!--con esto agrego jquery-->
+
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    type="text/javascript">
+  </script>
+
+  <script>
+        $(document).ready(function() {
+
+          document.getElementById("hola").onmouseover = colorear_a_azul;
+          document.getElementById("hola").onmouseout = colorear_a_rojo;
+
+          function colorear_a_azul(){
+            $(h2).bgColor = "#0000ff";
+          }
+
+          function colorear_a_rojo(){
+            document.getElementsByClassName('hola').bgColor = "#ff0000";
+          }
+
+          function pintar(objeto,col){
+            objeto.style.backgroundColor=col;
+          }
+
+        });
+  </script>
+
 </html>

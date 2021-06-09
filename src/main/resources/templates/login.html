@@ -8,7 +8,7 @@
 
     <body>
 
-        <h1>Login</h1>
+        <h1 id="titulo">Login</h1>
         <form method="post" th:action="@{/login}">
             <label for="username">Username:</label>
             <input type="text" name="username" id="username"/>
@@ -18,49 +18,40 @@
             <input id="botoningreso" type="submit" value="Login" />
         </form>
 
-        <input type="text" id="test" value="ingresar nombre usuario">
+        <input type="text" id="test" value="ingresar nombre usuario" style="color: grey;">
         <button id="boton">Verificar usuario</button>
 
         <button id="mostrar">mostrar titulo</button>
         <button id="ocultar">ocultar titulo</button>
-        <button style="position: absolute;top: 15%;">Hello</button>
-
     </body>
 
     <script
-            src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous">
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+            type="text/javascript">
+    </script>
+
     <script>
         $(document).ready(function() {
 
             dar_bienvenida();
-
-            accionar_titulo();
-
             informar_usuario_valido();
+
+            $("#mostrar").on('click', function() {
+                $("#titulo").show();
+            });
+
+            $("#ocultar").on('click', function() {
+                $("#titulo").hide();
+            });
 
 
             function dar_bienvenida(){
                 alert("Debe iniciar sesion para continuar");
-            }
-
-            function accionar_titulo(){
-                ocultar_titulo();
-                mostrar_titulo();
-            }
-
-            function ocultar_titulo(){
-                $("#ocultar").click(function(){
-                    $("h1").hide();
-                });
-            }
-
-            function mostrar(){
-                $("#mostrar").click(function(){
-                    $("h1").show();
-                });
             }
 
             function informar_usuario_valido(){
@@ -68,7 +59,6 @@
                     alert($("#test").val() + " es un usuario valido");
                 });
             }
-
         });
 
     </script>
