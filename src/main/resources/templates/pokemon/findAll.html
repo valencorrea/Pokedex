@@ -65,8 +65,8 @@
 
     var modo_diurno = true;
 
-    function pintar(objeto, color){
-        objeto.style.backgroundColor = color;
+   function pintar(objeto, color){
+      objeto.style.backgroundColor = color;
     }
 
     document.getElementById("nocturno").onclick = function(){
@@ -79,5 +79,17 @@
       document.bgColor="#FFFFFF";
     };
   </script>
+
+<!--
+  funcion de coloreo en nocturno
+
+   function pintar(objeto, color){
+    if((modo_diurno == false) && (color == "#fff")){
+      objeto.style.backgroundColor = "#696969";
+    else{
+      objeto.style.backgroundColor = color;
+    }
+  }
+-->
 
 </html>
