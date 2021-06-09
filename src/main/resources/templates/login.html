@@ -1,66 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <!-- <script src="codigo.js"></script> -->
-    <title>Login</title>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+    </head>
+
+    <body>
+
+        <h1>Login</h1>
+        <form method="post" th:action="@{/login}">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username"/>
+            <br/>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" title="Password must be 8 characters including 1 uppercase letter, 1 lowercase letter and numeric characters" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
+            <input id="botoningreso" type="submit" value="Login" />
+            <!-- <button>boton</button> -->
+        </form>
+
+        <input type="text" id="test" value="ingresar nombre usuario">
+        <button id="boton">Verificar usuario</button>
+
+        <button id="mostrar">mostrar titulo</button>
+        <button id="ocultar">ocultar titulo</button>
+
+    </body>
+
     <script
             src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"></script><!--con esto agrego jquery-->
-
-    <script typ="text/javascript">
-        $(document).ready(function(){
-            alert("Debe iniciar sesion para continuar");
-        });
+            crossorigin="anonymous">
     </script>
-
-</head>
-<body>
-    <h1>Login</h1>
-
-    <button id="mostrar">mostrar titulo</button>
-    <button id="ocultar">ocultar titulo</button>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
+
+            alert("Debe iniciar sesion para continuar");
+
             $("#ocultar").click(function(){
                 $("h1").hide();
             });
             $("#mostrar").click(function(){
                 $("h1").show();
             });
+
+            $("#boton").click(function(){
+                alert($("#test").val() + " es un usuario valido");
+            });
+
         });
     </script>
 
-    <!-- <script>
-        $(document).ready(function(){
-            $("#botonverificar").click(function(){
-                alert("Usuario:" + $(username).text());
-            });
-        });
-    </script> -->
-
-    <script>
-    $(document).ready(function(){
-      $("#boton").click(function(){
-        alert($("#test").val() + " es un usuario valido");
-      });
-    });
-  </script>
-
-<form method="post" th:action="@{/login}">
-  <label for="username">Username:</label>
-  <input type="text" name="username" id="username"/>
-  <br/>
-  <label for="password">Password:</label>
-    <input type="password" name="password" id="password" title="Password must be 8 characters including 1 uppercase letter, 1 lowercase letter and numeric characters" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
-    <input id="botoningreso" type="submit" value="Login" />
-    <!-- <button>boton</button> -->
-</form>
-
-    <!-- <button id="botonverificar">Verificar usuario</button> -->
-    <input type="text" id="test" value="ingresar nombre usuario">
-    <button id="boton">Verificar usuario</button>
-
-</body>
 </html>
