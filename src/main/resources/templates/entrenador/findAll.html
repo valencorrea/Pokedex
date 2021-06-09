@@ -7,8 +7,12 @@
 
     <body>
         <h1 th:text="${title}"></h1>
+
+        <button id="mostrar">mostrar entrenadores</button>
+        <button id="ocultar">ocultar entrenadores</button>
+
         <br/>
-        <table >
+        <table id="tablaentrenadores">
             <thead>
                 <tr>
                     <th onmouseover="pintar(this,'#ffa0bd')"
@@ -34,6 +38,7 @@
             </tbody>
 
         </table>
+
     </body>
 
     <script
@@ -52,6 +57,14 @@
         function pintar(objeto, color){
             objeto.style.backgroundColor = color;
         }
+
+        $("#mostrar").on('click', function() {
+            $("#tablaentrenadores").slideDown();
+        });
+
+        $("#ocultar").on('click', function() {
+            $("#tablaentrenadores").slideUp();
+        });
 
     </script>
 </html>

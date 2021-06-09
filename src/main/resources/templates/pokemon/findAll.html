@@ -9,8 +9,12 @@
   <body>
 
   <h1 th:text="${title}"></h1>
+
+  <button id="mostrar">mostrar pokemones</button>
+  <button id="ocultar">ocultar pokemones</button>
+
   <br/>
-  <table>
+  <table id="tabla_pokemones">
     <thead>
     <tr>
       <th onmouseover="pintar(this,'#ffa0bd')"
@@ -63,7 +67,7 @@
 
   <script>
 
-    var modo_diurno = true;
+   var modo_diurno = true;
 
    function pintar(objeto, color){
       objeto.style.backgroundColor = color;
@@ -78,6 +82,15 @@
       modo_diurno = true;
       document.bgColor="#FFFFFF";
     };
+
+    $("#mostrar").on('click', function() {
+        $("#tabla_pokemones").slideDown();
+    });
+
+    $("#ocultar").on('click', function() {
+        $("#tabla_pokemones").slideUp();
+    });
+
   </script>
 
 <!--
