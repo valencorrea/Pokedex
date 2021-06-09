@@ -4,47 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <title th:text="${title}"></title>
-  <!-- <script>
-    $(document).ready(function(){
-      alert("entrando a la seccion de pokemones");
-    });
-  </script> -->
 
-  <!-- <script>
-    $(document).ready(function(){
-        $("#pokemon").hover(function(){
-          $("#pokemon").addClass('resaltar');
-        });
-
-        $("#pokemon").mouseleave(function(){
-          $("#pokemon").removeClass('resaltar');
-        });
-    });
-    </script> -->
 </head>
-
   <body>
-
-  <script>
-  function pintar(objeto,col){
-    objeto.style.backgroundColor=col;
-  }
-  </script>
 
     <h1 th:text="${title}"></h1>
     <br/>
     <table>
       <thead>
         <tr>
-          <th onmouseover="pintar(this,'#ffe0e9')"
+          <th onmouseover="pintar(this,'#ffa0bd')"
               onmouseout="pintar(this,'#fff')">
             ID</th>
 
-          <th onmouseover="pintar(this,'#ffe0e9')"
+          <th onmouseover="pintar(this,'#ffa0bd')"
               onmouseout="pintar(this,'#fff')">
             NOMBRE</th>
 
-          <th onmouseover="pintar(this,'#ffe0e9')"
+          <th onmouseover="pintar(this,'#ffa0bd')"
               onmouseout="pintar(this,'#fff')">
             NIVEL DE ARRIBO</th>
         </tr>
@@ -52,9 +29,18 @@
 
       <tbody>
         <tr th:each="pokemon: ${pokemones}">
-          <td th:text="${pokemon.getId()}"></td>
-          <td th:text="${pokemon.getNombre()}"></td>
-          <td th:text="${pokemon.getNivel()}"></td>
+
+          <td onmouseover="pintar(this,'#ffe0e9')"
+              onmouseout="pintar(this,'#fff')"
+              th:text="${pokemon.getId()}"></td>
+
+          <td onmouseover="pintar(this,'#ffe0e9')"
+              onmouseout="pintar(this,'#fff')"
+              th:text="${pokemon.getNombre()}"></td>
+
+          <td onmouseover="pintar(this,'#ffe0e9')"
+              onmouseout="pintar(this,'#fff')"
+              th:text="${pokemon.getNivel()}"></td>
         </tr>
       </tbody>
     </table>
@@ -73,24 +59,11 @@
   </script>
 
   <script>
-        $(document).ready(function() {
 
-          document.getElementById("hola").onmouseover = colorear_a_azul;
-          document.getElementById("hola").onmouseout = colorear_a_rojo;
+      function pintar(objeto,col){
+        objeto.style.backgroundColor=col;
+      }
 
-          function colorear_a_azul(){
-            $(h2).bgColor = "#0000ff";
-          }
-
-          function colorear_a_rojo(){
-            document.getElementsByClassName('hola').bgColor = "#ff0000";
-          }
-
-          function pintar(objeto,col){
-            objeto.style.backgroundColor=col;
-          }
-
-        });
   </script>
 
 </html>
