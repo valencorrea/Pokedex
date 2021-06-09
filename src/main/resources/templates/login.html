@@ -4,11 +4,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
+        <link rel="stylesheet" href="./css/estilos.css">
     </head>
 
     <body>
 
-        <h1>Login</h1>
+        <h1 class="texto-centrado">Login</h1>
         <form method="post" th:action="@{/login}">
             <label for="username">Username:</label>
             <input type="text" name="username" id="username"/>
@@ -16,7 +17,6 @@
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" title="Password must be 8 characters including 1 uppercase letter, 1 lowercase letter and numeric characters" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
             <input id="botoningreso" type="submit" value="Login" />
-            <!-- <button>boton</button> -->
         </form>
 
         <input type="text" id="test" value="ingresar nombre usuario">
@@ -24,6 +24,7 @@
 
         <button id="mostrar">mostrar titulo</button>
         <button id="ocultar">ocultar titulo</button>
+        <button style="position: absolute;top: 15%;">Hello</button>
 
     </body>
 
@@ -35,20 +36,42 @@
     <script>
         $(document).ready(function() {
 
-            alert("Debe iniciar sesion para continuar");
+            dar_bienvenida();
 
-            $("#ocultar").click(function(){
-                $("h1").hide();
-            });
-            $("#mostrar").click(function(){
-                $("h1").show();
-            });
+            accionar_titulo();
 
-            $("#boton").click(function(){
-                alert($("#test").val() + " es un usuario valido");
-            });
+            informar_usuario_valido();
+
+
+            function dar_bienvenida(){
+                alert("Debe iniciar sesion para continuar");
+            }
+
+            function accionar_titulo(){
+                ocultar_titulo();
+                mostrar_titulo();
+            }
+
+            function ocultar_titulo(){
+                $("#ocultar").click(function(){
+                    $("h1").hide();
+                });
+            }
+
+            function mostrar(){
+                $("#mostrar").click(function(){
+                    $("h1").show();
+                });
+            }
+
+            function informar_usuario_valido(){
+                $("#boton").click(function(){
+                    alert($("#test").val() + " es un usuario valido");
+                });
+            }
 
         });
+
     </script>
 
 </html>
