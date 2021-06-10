@@ -55,24 +55,42 @@
         $("td").mouseover(function(){
             $(this).css("background-color", "#ffe0e9");
         });
-
         $("td").mouseout(function(){
-            $(this).css("background-color", "#FFFFFF");
+            if(modo_diurno == true){        
+                $(this).css("background-color", "#FFFFFF");
+            }
+            else{
+                $(this).css("background-color", "#696969");   
+            }
         });
+
+
+        $("th").mouseover(function(){
+            $(this).css("background-color", "#ffa0bd");
+        });
+        $("th").mouseout(function(){
+            if(modo_diurno == true){        
+                $(this).css("background-color", "#FFFFFF");
+            }
+            else{
+                $(this).css("background-color", "#696969");   
+            }
+        });
+
 
         $('#nocturno').click(function(){
             $('body').css('background-color', '#696969');
+            modo_diurno = false;
         });   
-
         $('#diurno').click(function(){
             $('body').css('background-color', '#FFFFFF');
+            modo_diurno = true;
         });
 
 
         $("#mostrar").on('click', function() {
             $("#tabla_entrenadores").slideDown();
         });
-
         $("#ocultar").on('click', function() {
             $("#tabla_entrenadores").slideUp();
         });
