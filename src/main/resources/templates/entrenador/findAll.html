@@ -15,25 +15,19 @@
         <table id="tabla_entrenadores">
             <thead>
                 <tr>
-                    <th onmouseover="pintar(this,'#ffa0bd')"
-                        onmouseout="pintar(this,'#fff')">
+                    <th>
                         ID</th>
 
-                    <th onmouseover="pintar(this,'#ffa0bd')"
-                        onmouseout="pintar(this,'#fff')">
+                    <th>
                         NOMBRE</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="entrenador: ${entrenadores}">
 
-                    <td onmouseover="pintar(this,'#ffe0e9')"
-                        onmouseout="pintar(this,'#fff')"
-                        th:text="${entrenador.getId()}"></td>
+                    <td th:text="${entrenador.getId()}"></td>
 
-                    <td onmouseover="pintar(this,'#ffe0e9')"
-                        onmouseout="pintar(this,'#fff')"
-                        th:text="${entrenador.getNombre()}"></td>
+                    <td th:text="${entrenador.getNombre()}"></td>
                 </tr>
             </tbody>
 
@@ -58,9 +52,13 @@
     <script>
         var modo_diurno = true;
 
-        function pintar(objeto, color){
-            objeto.style.backgroundColor = color;
-        }
+        $("td").mouseover(function(){
+            $(this).css("background-color", "#ffe0e9");
+        });
+
+        $("td").mouseout(function(){
+            $(this).css("background-color", "#FFFFFF");
+        });
 
         $('#nocturno').click(function(){
             $('body').css('background-color', '#696969');

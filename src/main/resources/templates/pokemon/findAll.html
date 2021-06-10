@@ -75,44 +75,39 @@
 	</script>
 
 	<script>
+	//$(document).ready(function() {
 
-	var modo_diurno = true;
+		var modo_diurno = true;
 
-	function pintar(objeto, color){
-		objeto.style.backgroundColor = color; //hacerlo con jquery
-	}
+		function pintar(objeto, color){
+			objeto.style.backgroundColor = color; //hacerlo con jquery
+		}
 
-    $('#nocturno').click(function(){
-        $('body').css('background-color', '#696969');
-    });   
+	    $('#nocturno').click(function(){
+	        $('body').css('background-color', '#696969');
+	    });   
 
-    $('#diurno').click(function(){
-        $('body').css('background-color', '#FFFFFF');
-    });   
-
-/*	document.getElementById("nocturno").onclick = function(){ //hacerlo con jquery
-		modo_diurno = false;
-		document.bgColor="#696969";
-	};
-	document.getElementById("diurno").onclick = function(){
-		modo_diurno = true;
-		document.bgColor="#FFFFFF";
-	};
-*/
-	$("#mostrar").on('click', function() {
-		$("#tabla_pokemones").slideDown();
-	});
-	$("#ocultar").on('click', function() {
-		$("#tabla_pokemones").slideUp();
-	});
+	    $('#diurno').click(function(){
+	        $('body').css('background-color', '#FFFFFF');
+	    });   
 
 
-	$("#atributos_pokemon a").click(function(event){
-		event.preventDefault();
-		var url = $(this).attr("href");
+		$("#mostrar").on('click', function() {
+			$("#tabla_pokemones").slideDown();
+		});
+		$("#ocultar").on('click', function() {
+			$("#tabla_pokemones").slideUp();
+		});
 
-		$("#contenidos_externos").load(url);
-	});
+
+		$("#atributos_pokemon a").click(function(event){
+			event.preventDefault();
+			var url = $(this).attr("href");
+
+			$("#contenidos_externos").load(url);
+		});
+
+	//});
 	
   </script>
 
