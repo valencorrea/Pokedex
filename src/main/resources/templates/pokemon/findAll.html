@@ -52,6 +52,33 @@
   <button id="diurno">Modo Diurno</button>
   <button id="nocturno">Modo Nocturno</button>
 
+  <button id="tipos">Ver tipos</button>
+  <div id="response">
+  </div>
+
+  <script>
+
+    function ajax(){
+      const http = new XMLHttpRequest();
+      const url = 'http://localhost:9090/pokemon/tipo/';
+
+      http.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+          console.log(this.responseText);
+          document.getElementById("response").innerHTML = this.responseText;
+        }
+      }
+
+      http.open("GET", url);
+      http.send();
+    }
+
+    document.getElementById("tipos").addEventListener("click", function(){
+      ajax();
+    });
+
+  </script>
+
   </body>
 
   <script
@@ -90,7 +117,7 @@
     $("#ocultar").on('click', function() {
         $("#tabla_pokemones").slideUp();
     });
-
+    
   </script>
 
 <!--
