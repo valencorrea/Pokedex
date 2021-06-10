@@ -13,9 +13,6 @@
 	
 		<h1 th:text="${title}"></h1>
 
-		<button id="mostrar">mostrar habilidades</button>
-        <button id="ocultar">ocultar habilidades</button>
-
 		<br/>
 		
 		<table id="tabla_habilidades">
@@ -66,14 +63,6 @@
         function pintar(objeto, color){
             objeto.style.backgroundColor = color;
         }
-
-        $("#mostrar").on('click', function() {
-            $("#tabla_habilidades").slideDown();
-        });
-
-        $("#ocultar").on('click', function() {
-            $("#tabla_habilidades").slideUp();
-        });
 
     </script>
 
