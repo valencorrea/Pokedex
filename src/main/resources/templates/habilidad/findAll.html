@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title th:text="${title}"></title>
-  <script
-          src="https://code.jquery.com/jquery-3.6.0.min.js"
-          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-          crossorigin="anonymous"></script><!--con esto agrego jquery-->
-</head>
-<body>
-<h1 th:text="${title}"></h1>
-<br/>
-<table >
-  <thead>
-  <tr>
-    <th>id</th>
-    <th>nombre</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="habilidad: ${habilidades}">
-    <td th:text="${habilidad.getId()}"></td>
-    <td th:text="${habilidad.getNombre()}"></td>
-  </tr>
-  </tbody>
+	<head>
+  		<meta charset="UTF-8">
+	  	<title th:text="${title}"></title>
+	  	<script
+	        src="https://code.jquery.com/jquery-3.6.0.min.js"
+	        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	        crossorigin="anonymous"></script><!--con esto agrego jquery-->
+	</head>
+	
+	<body>
+	
+		<h1 th:text="${title}"></h1>
+		<br/>
+		
+		<table>
+			<thead>
+			  	<tr>
+			    	<th>id</th>
+			    	<th>nombre</th>
+			  	</tr>
+		  	</thead>
+		  	
+		  	<tbody>
+		  		<tr th:each="habilidad: ${habilidades}">
+			    	<td th:text="${habilidad.getId()}"></td>
+			    	<td th:text="${habilidad.getNombre()}"></td>
+			  	</tr>
+		  	</tbody>
 
-</table>
-</body>
+		</table>
+		
+	</body>
 </html>

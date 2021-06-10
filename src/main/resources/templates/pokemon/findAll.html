@@ -1,134 +1,133 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 
-  <head>
-    <meta charset="UTF-8">
-    <title th:text="${title}"></title>
+	<head>
+	<meta charset="UTF-8">
+	<title th:text="${title}"></title>
 
-  </head>
-  <body>
+	</head>
+  	<body>
 
-  <h1 th:text="${title}"></h1>
+  	<h1 th:text="${title}"></h1>
 
-  <button id="mostrar">mostrar pokemones</button>
-  <button id="ocultar">ocultar pokemones</button>
+	<button id="mostrar">mostrar pokemones</button>
+  	<button id="ocultar">ocultar pokemones</button>
 
-  <br/>
-  <table id="tabla_pokemones">
-    <thead>
-    <tr>
-      <th onmouseover="pintar(this,'#ffa0bd')"
-          onmouseout="pintar(this,'#fff')">
-        ID</th>
+  	<br/>
+  	<table id="tabla_pokemones">
+	
+		<thead>
+			<tr>
+		  		<th onmouseover="pintar(this,'#ffa0bd')"
+				  onmouseout="pintar(this,'#fff')">
+				ID</th>
 
-      <th onmouseover="pintar(this,'#ffa0bd')"
-          onmouseout="pintar(this,'#fff')">
-        NOMBRE</th>
+			  	<th onmouseover="pintar(this,'#ffa0bd')"
+				  onmouseout="pintar(this,'#fff')">
+				NOMBRE</th>
 
-      <th onmouseover="pintar(this,'#ffa0bd')"
-          onmouseout="pintar(this,'#fff')">
-        NIVEL DE ARRIBO</th>
-    </tr>
-    </thead>
+			  	<th onmouseover="pintar(this,'#ffa0bd')"
+				  onmouseout="pintar(this,'#fff')">
+				NIVEL DE ARRIBO</th>
+			</tr>
+		</thead>
 
-    <tbody>
-    <tr th:each="pokemon: ${pokemones}">
+		<tbody>
+			<tr th:each="pokemon: ${pokemones}">
 
-      <td onmouseover="pintar(this,'#ffe0e9')"
-          onmouseout="pintar(this,'#fff')"
-          th:text="${pokemon.getId()}"></td>
+			  	<td onmouseover="pintar(this,'#ffe0e9')"
+				  onmouseout="pintar(this,'#fff')"
+				  th:text="${pokemon.getId()}"></td>
 
-      <td onmouseover="pintar(this,'#ffe0e9')"
-          onmouseout="pintar(this,'#fff')"
-          th:text="${pokemon.getNombre()}"></td>
+			  	<td onmouseover="pintar(this,'#ffe0e9')"
+				  onmouseout="pintar(this,'#fff')"
+				  th:text="${pokemon.getNombre()}"></td>
 
-      <td onmouseover="pintar(this,'#ffe0e9')"
-          onmouseout="pintar(this,'#fff')"
-          th:text="${pokemon.getNivel()}"></td>
-    </tr>
-    </tbody>
-  </table>
+			  	<td onmouseover="pintar(this,'#ffe0e9')"
+				  onmouseout="pintar(this,'#fff')"
+				  th:text="${pokemon.getNivel()}"></td>
+			</tr>
+		</tbody>
 
-  <button id="diurno">Modo Diurno</button>
-  <button id="nocturno">Modo Nocturno</button>
+	</table>
 
-  <button id="tipos">Ver tipos</button>
-  <div id="response">
-  </div>
+	<button id="diurno">Modo Diurno</button>
+	<button id="nocturno">Modo Nocturno</button>
 
-  <script>
+	<button id="tipos">Ver tipos</button>
+	<div id="response">
+	</div>
 
-    function ajax(){
-      const http = new XMLHttpRequest();
-      const url = 'http://localhost:9090/pokemon/tipo/';
+	</body>
 
-      http.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 200){
-          console.log(this.responseText);
-          document.getElementById("response").innerHTML = this.responseText;
-        }
-      }
+	<script
+	  	src="https://code.jquery.com/jquery-3.6.0.min.js"
+	  	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+		crossorigin="anonymous">
+	</script><!--con esto agrego jquery-->
 
-      http.open("GET", url);
-      http.send();
-    }
+	<script
+		src="https://code.jquery.com/jquery-3.2.1.js"
+		type="text/javascript">
+	</script>
 
-    document.getElementById("tipos").addEventListener("click", function(){
-      ajax();
-    });
+	<script>
 
-  </script>
+	var modo_diurno = true;
 
-  </body>
+	function pintar(objeto, color){
+		objeto.style.backgroundColor = color;
+	}
 
-  <script
-          src="https://code.jquery.com/jquery-3.6.0.min.js"
-          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-          crossorigin="anonymous">
-  </script><!--con esto agrego jquery-->
+	document.getElementById("nocturno").onclick = function(){
+		modo_diurno = false;
+		document.bgColor="#696969";
+	};
+	document.getElementById("diurno").onclick = function(){
+		modo_diurno = true;
+		document.bgColor="#FFFFFF";
+	};
 
-  <script
-          src="https://code.jquery.com/jquery-3.2.1.js"
-          type="text/javascript">
-  </script>
+	$("#mostrar").on('click', function() {
+		$("#tabla_pokemones").slideDown();
+	});
+	$("#ocultar").on('click', function() {
+		$("#tabla_pokemones").slideUp();
+	});
 
-  <script>
 
-   var modo_diurno = true;
 
-   function pintar(objeto, color){
-      objeto.style.backgroundColor = color;
-    }
 
-    document.getElementById("nocturno").onclick = function(){
-      modo_diurno = false;
-      document.bgColor="#696969";
-    };
+	function ajax(){
+	const http = new XMLHttpRequest();
+	const url = 'http://localhost:9090/pokemon/tipo/';
 
-    document.getElementById("diurno").onclick = function(){
-      modo_diurno = true;
-      document.bgColor="#FFFFFF";
-    };
+		http.onreadystatechange = function(){
+	  		if((this.readyState == 4) && (this.status == 200)){
+				console.log(this.responseText);
+				document.getElementById("response").innerHTML = this.responseText;
+	  		}
+		}
 
-    $("#mostrar").on('click', function() {
-        $("#tabla_pokemones").slideDown();
-    });
+		http.open("GET", url);
+		http.send();
+	}
 
-    $("#ocultar").on('click', function() {
-        $("#tabla_pokemones").slideUp();
-    });
-    
+	document.getElementById("tipos").addEventListener("click", function(){
+		ajax();
+	});
+	
   </script>
 
 <!--
   funcion de coloreo en nocturno
 
    function pintar(objeto, color){
-    if((modo_diurno == false) && (color == "#fff")){
-      objeto.style.backgroundColor = "#696969";
-    else{
-      objeto.style.backgroundColor = color;
-    }
+	if((modo_diurno == false) && (color == "#fff")){
+	  objeto.style.backgroundColor = "#696969";
+	else{
+	  objeto.style.backgroundColor = color;
+	}
   }
 -->
 
