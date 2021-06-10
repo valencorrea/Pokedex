@@ -15,22 +15,16 @@
         <table id="tabla_entrenadores">
             <thead>
                 <tr>
-                    <th>
-                        ID</th>
-
-                    <th>
-                        NOMBRE</th>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="entrenador: ${entrenadores}">
-
                     <td th:text="${entrenador.getId()}"></td>
-
                     <td th:text="${entrenador.getNombre()}"></td>
                 </tr>
             </tbody>
-
         </table>
 
         <button id="diurno">Modo Diurno</button>
@@ -80,11 +74,13 @@
 
         $('#nocturno').click(function(){
             $('td').css('background-color', '#696969');
+            $('th').css('background-color', '#696969');
             $('body').css('background-color', '#696969');
             modo_diurno = false;
         });   
         $('#diurno').click(function(){
             $('td').css('background-color', '#FFFFFF');
+            $('th').css('background-color', '#FFFFFF');
             $('body').css('background-color', '#FFFFFF');
             modo_diurno = true;
         });
