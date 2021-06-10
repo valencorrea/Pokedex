@@ -39,6 +39,9 @@
 
         </table>
 
+        <button id="diurno">Modo Diurno</button>
+        <button id="nocturno">Modo Nocturno</button>
+
     </body>
 
     <script
@@ -53,10 +56,22 @@
     </script>
 
     <script>
+        var modo_diurno = true;
 
         function pintar(objeto, color){
             objeto.style.backgroundColor = color;
         }
+
+        document.getElementById("nocturno").onclick = function(){
+          modo_diurno = false;
+          document.bgColor="#696969";
+        };
+
+        document.getElementById("diurno").onclick = function(){
+          modo_diurno = true;
+          document.bgColor="#FFFFFF";
+        };
+
 
         $("#mostrar").on('click', function() {
             $("#tablaentrenadores").slideDown();
