@@ -2,9 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 
 	<head>
-	<meta charset="UTF-8">
-	<title th:text="${title}"></title>
-
+		<meta charset="UTF-8">
+		<title th:text="${title}"></title>
 	</head>
   	<body>
 
@@ -55,6 +54,14 @@
 	<button id="nocturno">Modo Nocturno</button>
 
 	<button id="tipos">Ver tipos</button>
+
+	<ul id="atributos_pokemon">
+		<li><a href="habilidad/">Ver habilidades</a></li>
+		<li><a href="evolucion/">Ver evoluciones</a></li>
+	</ul>
+
+	<div id="contenidos_externos"></div>
+
 	<div id="response">
 	</div>
 
@@ -96,7 +103,13 @@
 	});
 
 
+	$("#atributos_pokemon a").click(function(){
+		//var url = $(this).attr("href");
 
+		//$("#contenidos_externos").load(url + " #atributos_pokemon");
+		$("#contenidos_externos").load("habilidad/");
+		return false;
+	});
 
 	function ajax(){
 	const http = new XMLHttpRequest();
