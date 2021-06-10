@@ -11,23 +11,68 @@
 
 	<body>
 		<h1 th:text="${title}"></h1>
+
+		<button id="mostrar">mostrar tipos</button>
+        <button id="ocultar">ocultar tipos</button>
+
 		<br/>
 
-		<table>
-		  	<thead>
-		  		<tr>
-		    		<th>id</th>
-		    		<th>nombre</th>
-		  		</tr>
+		<table id="tabla_tipos">
+			<thead>
+			  	<tr>
+
+			    	<th onmouseover="pintar(this,'#ffa0bd')"
+                        onmouseout="pintar(this,'#fff')">
+                    ID</th>
+
+			    	<th onmouseover="pintar(this,'#ffa0bd')"
+                        onmouseout="pintar(this,'#fff')">
+                    NOMBRE</th>
+
+			  	</tr>
 		  	</thead>
-		  
+		  	
 		  	<tbody>
-			  	<tr th:each="tipo: ${tipos}">
-			    	<td th:text="${tipo.getId()}"></td>
-			    	<td th:text="${tipo.getNombre()}"></td>
+		  		<tr th:each="tipo: ${tipos}">
+			    	<td onmouseover="pintar(this,'#ffe0e9')"
+                        onmouseout="pintar(this,'#fff')"
+                        th:text="${tipo.getId()}"></td>
+
+			    	<td onmouseover="pintar(this,'#ffe0e9')"
+                        onmouseout="pintar(this,'#fff')"
+                        th:text="${tipo.getNombre()}"></td>
+
 			  	</tr>
 		  	</tbody>
 
 		</table>
 	</body>
+
+	<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script><!--con esto agrego jquery-->
+
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        type="text/javascript">
+    </script>
+
+	<script>
+
+        function pintar(objeto, color){
+            objeto.style.backgroundColor = color;
+        }
+
+        $("#mostrar").on('click', function() {
+            $("#tabla_tipos").slideDown();
+        });
+
+        $("#ocultar").on('click', function() {
+            $("#tabla_tipos").slideUp();
+        });
+
+    </script>
+
 </html>
