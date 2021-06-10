@@ -62,15 +62,13 @@
             objeto.style.backgroundColor = color;
         }
 
-        document.getElementById("nocturno").onclick = function(){
-          modo_diurno = false;
-          document.bgColor="#696969";
-        };
+        $('#nocturno').click(function(){
+            $('body').css('background-color', '#696969');
+        });   
 
-        document.getElementById("diurno").onclick = function(){
-          modo_diurno = true;
-          document.bgColor="#FFFFFF";
-        };
+        $('#diurno').click(function(){
+            $('body').css('background-color', '#FFFFFF');
+        });
 
 
         $("#mostrar").on('click', function() {

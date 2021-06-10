@@ -54,9 +54,9 @@
 	<button id="nocturno">Modo Nocturno</button>
 
 	<ul id="atributos_pokemon">
-		<li><a href="habilidad/">Ver habilidades</a></li>
-		<li><a href="evolucion/">Ver evoluciones</a></li>
-		<li><a href="tipo/">Ver tipos</a></li>
+		<button><a href="habilidad/">Ver habilidades</a></button> <!-- ver como agarrarme el objeto en vez del html con ajax -->
+		<button><a href="evolucion/">Ver evoluciones</a></button>
+		<button><a href="tipo/">Ver tipos</a></button>
 	</ul>
 
 	<div id="contenidos_externos"></div>
@@ -79,10 +79,18 @@
 	var modo_diurno = true;
 
 	function pintar(objeto, color){
-		objeto.style.backgroundColor = color;
+		objeto.style.backgroundColor = color; //hacerlo con jquery
 	}
 
-	document.getElementById("nocturno").onclick = function(){
+    $('#nocturno').click(function(){
+        $('body').css('background-color', '#696969');
+    });   
+
+    $('#diurno').click(function(){
+        $('body').css('background-color', '#FFFFFF');
+    });   
+
+/*	document.getElementById("nocturno").onclick = function(){ //hacerlo con jquery
 		modo_diurno = false;
 		document.bgColor="#696969";
 	};
@@ -90,7 +98,7 @@
 		modo_diurno = true;
 		document.bgColor="#FFFFFF";
 	};
-
+*/
 	$("#mostrar").on('click', function() {
 		$("#tabla_pokemones").slideDown();
 	});
@@ -99,11 +107,11 @@
 	});
 
 
-	$("#atributos_pokemon a").click(function(){
+	$("#atributos_pokemon a").click(function(event){
+		event.preventDefault();
 		var url = $(this).attr("href");
 
 		$("#contenidos_externos").load(url);
-		return false;
 	});
 	
   </script>

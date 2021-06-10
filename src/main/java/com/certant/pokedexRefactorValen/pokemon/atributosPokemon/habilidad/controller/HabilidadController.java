@@ -17,9 +17,11 @@ public class HabilidadController {
 
     @GetMapping("/")
     public String findAll(Model model){
+    //public List<Habilidad> findAll(Model model){
         List<Habilidad> habilidades = habilidadService.findAll();
         model.addAttribute("title","Lista de habilidades");
         model.addAttribute("habilidades", habilidades);
         return "habilidad/findAll";
-    }
+        //return habilidades;
+    } //capaz falte otra cosita aca
 }
