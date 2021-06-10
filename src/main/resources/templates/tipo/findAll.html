@@ -17,28 +17,15 @@
 		<table id="tabla_tipos">
 			<thead>
 			  	<tr>
-
-			    	<th onmouseover="pintar(this,'#ffa0bd')"
-                        onmouseout="pintar(this,'#fff')">
-                    ID</th>
-
-			    	<th onmouseover="pintar(this,'#ffa0bd')"
-                        onmouseout="pintar(this,'#fff')">
-                    NOMBRE</th>
-
+			    	<th>ID</th>
+			    	<th>NOMBRE</th>
 			  	</tr>
 		  	</thead>
 		  	
 		  	<tbody>
 		  		<tr th:each="tipo: ${tipos}">
-			    	<td onmouseover="pintar(this,'#ffe0e9')"
-                        onmouseout="pintar(this,'#fff')"
-                        th:text="${tipo.getId()}"></td>
-
-			    	<td onmouseover="pintar(this,'#ffe0e9')"
-                        onmouseout="pintar(this,'#fff')"
-                        th:text="${tipo.getNombre()}"></td>
-
+			    	<td th:text="${tipo.getId()}"></td>
+			    	<td th:text="${tipo.getNombre()}"></td>
 			  	</tr>
 		  	</tbody>
 
@@ -58,9 +45,31 @@
 
 	<script>
 
-        function pintar(objeto, color){
-            objeto.style.backgroundColor = color;
-        }
+        $("td").mouseover(function(){
+            $(this).css("background-color", "#ffe0e9");
+        });
+        $("td").mouseout(function(){
+            if(modo_diurno == true){        
+                $(this).css("background-color", "#FFFFFF");
+            }
+            else{
+                $(this).css("background-color", "#696969");   
+            }
+        });
+
+
+        $("th").mouseover(function(){
+            $(this).css("background-color", "#ffa0bd");
+        });
+        $("th").mouseout(function(){
+            if(modo_diurno == true){        
+                $(this).css("background-color", "#FFFFFF");
+            }
+            else{
+                $(this).css("background-color", "#696969");   
+            }
+        });
+
 
     </script>
 

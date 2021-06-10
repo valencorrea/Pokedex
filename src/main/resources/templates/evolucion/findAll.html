@@ -18,44 +18,19 @@
 			<table id="tabla_evolucion">
 			<thead>
 			  	<tr>
-
-			    	<th onmouseover="pintar(this,'#ffa0bd')"
-                        onmouseout="pintar(this,'#fff')">
-                    ID</th>
-
-			    	<th onmouseover="pintar(this,'#ffa0bd')"
-                        onmouseout="pintar(this,'#fff')">
-                    NOMBRE</th>
-
-                    <th onmouseover="pintar(this,'#ffa0bd')"
-                        onmouseout="pintar(this,'#fff')">
-                    NIVEL NECESARIO</th>
-
-			    	<th onmouseover="pintar(this,'#ffa0bd')"
-                        onmouseout="pintar(this,'#fff')">
-                    TIPO DE EVOLUCION</th>
-
+			    	<th>ID</th>
+			    	<th>NOMBRE</th>
+                    <th>NIVEL NECESARIO</th>
+			    	<th>TIPO DE EVOLUCION</th>
 			  	</tr>
 		  	</thead>
 		  	
 		  	<tbody>
 		  		<tr th:each="evolucion: ${evoluciones}">
-			    	<td onmouseover="pintar(this,'#ffe0e9')"
-                        onmouseout="pintar(this,'#fff')"
-                        th:text="${evolucion.getId()}"></td>
-
-			    	<td onmouseover="pintar(this,'#ffe0e9')"
-                        onmouseout="pintar(this,'#fff')"
-                        th:text="${evolucion.getNombre()}"></td>
-
-                    <td onmouseover="pintar(this,'#ffe0e9')"
-                        onmouseout="pintar(this,'#fff')"
-                        th:text="${evolucion.getNivelNecesario()}"></td>
-
-			    	<td onmouseover="pintar(this,'#ffe0e9')"
-                        onmouseout="pintar(this,'#fff')"
-                        th:text="${evolucion.getTipoEvolucion()}"></td>
-
+			    	<td th:text="${evolucion.getId()}"></td>
+			    	<td th:text="${evolucion.getNombre()}"></td>
+                    <td th:text="${evolucion.getNivelNecesario()}"></td>
+			    	<td th:text="${evolucion.getTipoEvolucion()}"></td>
 			  	</tr>
 		  	</tbody>
 
@@ -75,9 +50,31 @@
 
 	<script>
 
-        function pintar(objeto, color){
-            objeto.style.backgroundColor = color;
-        }
+        $("td").mouseover(function(){
+            $(this).css("background-color", "#ffe0e9");
+        });
+        $("td").mouseout(function(){
+            if(modo_diurno == true){        
+                $(this).css("background-color", "#FFFFFF");
+            }
+            else{
+                $(this).css("background-color", "#696969");   
+            }
+        });
+
+
+        $("th").mouseover(function(){
+            $(this).css("background-color", "#ffa0bd");
+        });
+        $("th").mouseout(function(){
+            if(modo_diurno == true){        
+                $(this).css("background-color", "#FFFFFF");
+            }
+            else{
+                $(this).css("background-color", "#696969");   
+            }
+        });
+
 
     </script>
 
