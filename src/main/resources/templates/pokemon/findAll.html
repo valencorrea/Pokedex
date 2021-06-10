@@ -104,10 +104,9 @@
 
 
 	$("#atributos_pokemon a").click(function(){
-		//var url = $(this).attr("href");
+		var url = $(this).attr("href");
 
-		//$("#contenidos_externos").load(url + " #atributos_pokemon");
-		$("#contenidos_externos").load("habilidad/");
+		$("#contenidos_externos").load(url);
 		return false;
 	});
 
