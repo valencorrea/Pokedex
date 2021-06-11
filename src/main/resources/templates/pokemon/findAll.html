@@ -37,7 +37,7 @@
 	<button id="nocturno">Modo Nocturno</button>
 
 	<ul id="atributos_pokemon">
-		<button><a href="habilidad/">Ver habilidades</a></button> <!-- ver como agarrarme el objeto en vez del html con ajax -->
+		<button id="habilidad_boton">Ver habilidades</button> <!-- ver como agarrarme el objeto en vez del html con ajax -->
 		<button><a href="evolucion/">Ver evoluciones</a></button>
 		<button><a href="tipo/">Ver tipos</a></button>
 	</ul>
@@ -116,20 +116,29 @@
 			$("#contenidos_externos").load(url);
 		});
 
+
+        /*$.ajax({
+            url: "/pokemon/habilidad/", //ruta a donde hago la peticion
+            type: "GET", // tipo por defecto del @RequestMapping
+            dataType: 'json',
+            success: function(result){
+            	$("#habilidad_boton").click(function(result){
+            		var arraydata = eval(result);
+
+        			for(var i=0; i < 5; i++){
+                    	console.log(result[i]);
+                	}
+
+
+            		$.each(arraydata, function(i, arraydata, result){
+						$("#contenidos_externos").load("#arraydata[i]");
+		        	});
+		        });	
+            }
+        });*/
+
 	//});
 	
   </script>
-
-<!--
-  funcion de coloreo en nocturno
-
-   function pintar(objeto, color){
-	if((modo_diurno == false) && (color == "#fff")){
-	  objeto.style.backgroundColor = "#696969";
-	else{
-	  objeto.style.backgroundColor = color;
-	}
-  }
--->
-
 </html>
+
