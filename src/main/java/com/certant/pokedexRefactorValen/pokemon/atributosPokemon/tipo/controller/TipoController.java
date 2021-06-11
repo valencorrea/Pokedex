@@ -18,9 +18,11 @@ public class TipoController {
 
     @GetMapping("/")
     public String findAll(Model model){
+    //public List<Tipo> findAll(Model model){
         List<Tipo> tipos = tipoService.findAll();
         model.addAttribute("title","Lista de tipos");
         model.addAttribute("tipos", tipos);
         return "tipo/findAll";
+        //return tipos;
     }
 }

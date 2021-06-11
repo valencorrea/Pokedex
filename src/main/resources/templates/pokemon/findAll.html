@@ -37,9 +37,12 @@
 	<button id="nocturno">Modo Nocturno</button>
 
 	<ul id="atributos_pokemon">
+		
 		<button id="habilidad_boton">Ver habilidades</button> <!-- ver como agarrarme el objeto en vez del html con ajax -->
+
+		<button id="tipo_boton">Ver tipos</button> <!-- ver como agarrarme el objeto en vez del html con ajax -->
 		<button><a href="evolucion/">Ver evoluciones</a></button>
-		<button><a href="tipo/">Ver tipos</a></button>
+		<!-- <button><a href="tipo/">Ver tipos</a></button>-->
 	</ul>
 
 	<div id="contenidos_externos"></div>
@@ -109,7 +112,7 @@
 		});
 
 
-		$("#atributos_pokemon a").click(function(event){
+		$("#atributos_pokemon a").click(function(event){ // forma vieja
 			event.preventDefault();
 			var url = $(this).attr("href");
 
@@ -117,22 +120,64 @@
 		});
 
 
+		var xmlhttp;
+
+			if(window.XMLHttpRequest){
+				xmlhttp = new XMLHttpRequest();
+				console.log(xmlhttp);
+			}
+
+			xmlhttp.onreadystatechange = acciones;
+
+			function acciones(){
+				if(xmlhttp.readystate == 4 && xmlhttp.status ==20){
+					document.getElementById("contenidos_externos").innerHTML = xmlhttp.responseText;
+				}
+			}
+
+			xmlhttp.open("GET", "habilidad/", true);
+			xmlhttp.send();
+
+
+		/*$.getJSON('/pokemon/habilidad/', function(resp) {
+		    $.each(resp, function(k, v) {
+		        console.log(k + ' : ' + v);
+			}); 
+		});*/
+
+		/*$.ajax({
+			$('#atributos_pokemon form').attr('action')
+		});*/
+
         /*$.ajax({
             url: "/pokemon/habilidad/", //ruta a donde hago la peticion
             type: "GET", // tipo por defecto del @RequestMapping
-            dataType: 'json',
+            //dataType: 'json',
             success: function(result){
             	$("#habilidad_boton").click(function(result){
-            		var arraydata = eval(result);
+					event.preventDefault();
+            		$('<h1/>').text(result.title).appendTo('body');
+				        $('<div class="content"/>').html(result.html).appendTo('body');
+            		//var arraydata = eval(result);
+            		//$("#contenidos_externos").load("#result");
 
-        			for(var i=0; i < 5; i++){
-                    	console.log(result[i]);
-                	}
+//        			for(var i=0; i < 5; i++){
+//                    	console.log(result[i]);
+//                	}
 
-
-            		$.each(arraydata, function(i, arraydata, result){
-						$("#contenidos_externos").load("#arraydata[i]");
-		        	});
+            		//$.each(arraydata, function(i, arraydata, result){
+					//	$("#contenidos_externos").load("#arraydata");
+		        	//});
+		        });	
+            }
+        });*/
+/*
+        $.ajax({
+            url: "/pokemon/tipo/", 
+            type: "GET", 
+            success: function(result){
+            	$("#tipo_boton").click(function(result){
+            		$("#contenidos_externos").load("#result");
 		        });	
             }
         });*/
