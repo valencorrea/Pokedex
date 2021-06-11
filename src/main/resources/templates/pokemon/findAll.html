@@ -122,22 +122,24 @@
 
 		var xmlhttp;
 
-			if(window.XMLHttpRequest){
-				xmlhttp = new XMLHttpRequest();
-				console.log(xmlhttp);
-			}
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+			console.log(xmlhttp);
+		}
 
-			xmlhttp.onreadystatechange = acciones;
+		//xmlhttp.onreadystatechange = acciones;
 
-			function acciones(){
+		//function acciones(){//se esta llamando ni bien arranca D:
+			$("#habilidad_boton").click(function(result){
 				if(xmlhttp.readystate == 4 && xmlhttp.status ==20){
-					document.getElementById("contenidos_externos").innerHTML = xmlhttp.responseText;
+					document.getElementById("#contenidos_externos").innerHTML = xmlhttp.responseText;
 				}
-			}
+				xmlhttp.open("GET", "habilidad/", true);
+				xmlhttp.send();
+			});	
+		//}
 
-			xmlhttp.open("GET", "habilidad/", true);
-			xmlhttp.send();
-
+		
 
 		/*$.getJSON('/pokemon/habilidad/', function(resp) {
 		    $.each(resp, function(k, v) {
