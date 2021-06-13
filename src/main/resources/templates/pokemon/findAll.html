@@ -47,7 +47,7 @@
 
 	<div id="contenidos_externos"></div>
 
-
+	<h1>Lista de habilidades</h1>
 	<table>
 		
 		<thead>
@@ -137,18 +137,13 @@
 		});
 
 
+		document.querySelector('#habilidad_boton').addEventListener('click', traerHabilidades);
+		//document.querySelector('#tipo_boton').addEventListener('click', traerTipos);
+		//document.querySelector('#habilidad_boton').addEventListener('click', traerDatos);
 
-
-		/*var xmlhttp;
-		if(window.XMLHttpRequest){
-			xmlhttp = new XMLHttpRequest();
-			console.log(xmlhttp);
-		}*/
-
-		document.querySelector('#habilidad_boton').addEventListener('click', traerDatos);
 		
-		function traerDatos(){
-			console.log('dentro de function');
+		function traerHabilidades(){
+
 			const xhttp = new XMLHttpRequest();
 			xhttp.open('GET', 'habilidad/', true);
 			xhttp.send();
@@ -157,12 +152,10 @@
 
 				if(this.readyState == 4 && this.status == 200){
 					let datos = JSON.parse(xhttp.response);
-					//console.log(datos);
 					let tabla = document.querySelector('#lugar');
-					tabla.innerHTML = ''; //limpio para cada iteracion
+					//tabla.innerHTML = ''; //limpio para cada iteracion
 
 					for(let item of datos){
-						//console.log(item.nombre);
 						tabla.innerHTML += `
 							<tr>
 								<td>${item.id}</td>
@@ -176,74 +169,6 @@
 		
 		}
 
-		//xmlhttp.onreadystatechange = function(){//se esta llamando ni bien arranca D:
-			/*$("#habilidad_boton").click(function(){
-				if(xmlhttp.readystate == 4 && xmlhttp.status ==200){
-					//document.getElementById("#contenidos_externos").innerHTML = xmlhttp.responseText; //innerHTML asigna el contenido al # - responseText retorna la respuesta como texto
-					
-					//var habilidades = JSON.parse(xmlhttp);
-					//var habilidades = JSON.parse(this.responseText);
-					//(xmlhttp.response).replace(/[\[\]']/g,'' );
-
-					//var habilidades = JSON.parse(xmlhttp.response);
-
-
-
-					//$("#contenidos_externos").load(habilidades);
-					//alert("hola"); // NO ENTRA
-				}
-
-				xmlhttp.open("GET", "habilidad/", true);
-				xmlhttp.send();
-			});*/
-
-		//}
-
-		/*$.getJSON('/pokemon/habilidad/', function(resp) {
-		    $.each(resp, function(k, v) {
-		        console.log(k + ' : ' + v);
-			}); 
-		});*/
-
-		/*$.ajax({
-			$('#atributos_pokemon form').attr('action')
-		});*/
-
-        /*$.ajax({
-            url: "/pokemon/habilidad/", //ruta a donde hago la peticion
-            type: "GET", // tipo por defecto del @RequestMapping
-            //dataType: 'json',
-            success: function(result){
-            	$("#habilidad_boton").click(function(result){
-					event.preventDefault();
-            		$('<h1/>').text(result.title).appendTo('body');
-				        $('<div class="content"/>').html(result.html).appendTo('body');
-            		//var arraydata = eval(result);
-            		//$("#contenidos_externos").load("#result");
-
-//        			for(var i=0; i < 5; i++){
-//                    	console.log(result[i]);
-//                	}
-
-            		//$.each(arraydata, function(i, arraydata, result){
-					//	$("#contenidos_externos").load("#arraydata");
-		        	//});
-		        });	
-            }
-        });*/
-/*
-        $.ajax({
-            url: "/pokemon/tipo/", 
-            type: "GET", 
-            success: function(result){
-            	$("#tipo_boton").click(function(result){
-            		$("#contenidos_externos").load("#result");
-		        });	
-            }
-        });*/
-
-	//});
-	
   </script>
 </html>
 
