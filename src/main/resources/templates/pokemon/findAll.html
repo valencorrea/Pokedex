@@ -47,6 +47,23 @@
 
 	<div id="contenidos_externos"></div>
 
+
+	<table>
+		
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NOMBRE</th>
+			</tr>
+		</thead>
+
+		<tbody id="lugar">
+			
+		</tbody>
+
+	</table>
+
+
 	</body>
 
 	<script
@@ -128,7 +145,7 @@
 			console.log(xmlhttp);
 		}*/
 
-		document.querySelector('#habilidad_boton').addEventListener('click', traerDatos());
+		document.querySelector('#habilidad_boton').addEventListener('click', traerDatos);
 		
 		function traerDatos(){
 			console.log('dentro de function');
@@ -140,7 +157,19 @@
 
 				if(this.readyState == 4 && this.status == 200){
 					let datos = JSON.parse(xhttp.response);
-					console.log(datos);
+					//console.log(datos);
+					let tabla = document.querySelector('#lugar');
+					tabla.innerHTML = ''; //limpio para cada iteracion
+
+					for(let item of datos){
+						//console.log(item.nombre);
+						tabla.innerHTML += `
+							<tr>
+								<td>${item.id}</td>
+								<td>${item.nombre}</td>
+							</tr>
+						`
+					}
 				}
 
 			}
