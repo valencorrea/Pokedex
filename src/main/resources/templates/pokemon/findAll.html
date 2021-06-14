@@ -26,7 +26,7 @@
 			<tbody id="nombre_pokemon">
 				<tr th:each="pokemon: ${pokemones}">
 				  	<td th:text="${pokemon.getId()}"></td>
-				  	<td th:text="${pokemon.getNombre()}"></td>
+				  	<td id="nombre" th:text="${pokemon.getNombre()}"></td>
 				  	<td th:text="${pokemon.getNivel()}"></td>
 				</tr>
 			</tbody>
@@ -128,9 +128,15 @@
 			return xhttpTipo;
 		}
 
-		$("#nombre_pokemon").click(function(){
-        	alert("HOLA");
-    	});
+		//$('#nombre_pokemon').on('click', function() {
+			$('#nombre_pokemon').find('td:eq(1)').on('click', function(){
+				alert("HOLA");
+			});
+		//});
+
+/*    	$('#nombre_pokemon').find('td:nth-child('+2+')').each(function(){
+	        alert("HOLA");
+	    });*/
 
 		function traerTipos(){
 			$("#contenidos_externos").show(); 
