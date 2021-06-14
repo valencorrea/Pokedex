@@ -128,15 +128,9 @@
 			return xhttpTipo;
 		}
 
-		//$('#nombre_pokemon').on('click', function() {
-			$('#nombre_pokemon').find('td:eq(1)').on('click', function(){
-				alert("HOLA");
-			});
-		//});
-
-/*    	$('#nombre_pokemon').find('td:nth-child('+2+')').each(function(){
-	        alert("HOLA");
-	    });*/
+		$("#nombre_pokemon tr").find('td:eq(1)').on('click', function(){ // selecciono solo la columna de los nombres
+			alert("HOLA");
+		});
 
 		function traerTipos(){
 			$("#contenidos_externos").show(); 
