@@ -45,21 +45,22 @@
 			<!-- <button><a href="evolucion/">Ver evoluciones</a></button> -->
 		</ul>
 
-		<div id="contenidos_externos"></div>
+		<div id="contenidos_externos">
+			<h1 id="titulo_atributo"></h1> 
+			<table>
+				<thead>
+					 <tr>
+						<th>ID</th>
+						<th>NOMBRE</th>
+						<th id="nivel_evolucion">NIVEL NECESARIO</th>
+						<th id="tipo_evolucion">TIPO EVOLUCION</th>
+					</tr> 
+				</thead>
+				<tbody id="panel_atributos">
+				</tbody>
+			</table>
+		</div>
 
-		<h1 id="titulo_atributo"></h1> 
-		<table>
-			<thead>
-				 <tr>
-					<th>ID</th>
-					<th>NOMBRE</th>
-					<th id="nivel_evolucion">NIVEL NECESARIO</th>
-					<th id="tipo_evolucion">TIPO EVOLUCION</th>
-				</tr> 
-			</thead>
-			<tbody id="panel_atributos">
-			</tbody>
-		</table>
 	</body>
 	<script
 	  	src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -76,8 +77,7 @@
 	//$(document).ready(function() {
 
 		var modo_diurno = true;
-		$("#nivel_evolucion").hide(); // funciona como creo?
-		$("#tipo_evolucion").hide();
+		$("#contenidos_externos").hide(); 
 
 		$("td").mouseover(function(){
             $(this).css("background-color", "#ffe0e9");
@@ -140,6 +140,7 @@
 
 
 		function traerTipos(){
+			$("#contenidos_externos").show(); 
 			$("#nivel_evolucion").hide(); 
 			$("#tipo_evolucion").hide();			
 			const xhttpTipo = new XMLHttpRequest();
@@ -166,6 +167,7 @@
 
 
 		function traerHabilidades(){
+			$("#contenidos_externos").show(); 
 			$("#nivel_evolucion").hide(); 
 			$("#tipo_evolucion").hide();
 			const xhttpHabilidad = new XMLHttpRequest();
@@ -192,6 +194,7 @@
 
 
 		function traerEvoluciones(){
+			$("#contenidos_externos").show(); 
 			$("#nivel_evolucion").show(); 
 			$("#tipo_evolucion").show();
 			const xhttpEvolucion = new XMLHttpRequest();
