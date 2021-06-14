@@ -23,7 +23,7 @@
 				</tr>
 			</thead>
 
-			<tbody>
+			<tbody id="nombre_pokemon">
 				<tr th:each="pokemon: ${pokemones}">
 				  	<td th:text="${pokemon.getId()}"></td>
 				  	<td th:text="${pokemon.getNombre()}"></td>
@@ -83,6 +83,8 @@
 		cambiar_modo('#nocturno', '#696969', false);
 		cambiar_modo('#diurno', '#FFFFFF', true);		
 
+		//traerNombrePokemon();
+
 		function colorear(elemento, color){
         	$(elemento).mouseover(function(){
 	            $(this).css("background-color", color);
@@ -113,10 +115,11 @@
 			$("#tabla_pokemones").slideUp();
 		});
 
-
 		document.querySelector('#habilidad_boton').addEventListener('click', traerHabilidades);
 		document.querySelector('#tipo_boton').addEventListener('click', traerTipos);
 		document.querySelector('#evolucion_boton').addEventListener('click', traerEvoluciones);
+
+		//document.querySelector('#nombre_pokemon').addEventListener('click', traerNombrePokemon);
 
 		function inicializar_request(ruta){
 			const xhttpTipo = new XMLHttpRequest();
@@ -125,6 +128,10 @@
 			return xhttpTipo;
 		}
 
+		$("#nombre_pokemon").click(function(){
+        	alert("HOLA");
+    	});
+
 		function traerTipos(){
 			$("#contenidos_externos").show(); 
 			$("#nivel_evolucion").hide(); 
@@ -132,7 +139,7 @@
 
 			const xhttpTipo = inicializar_request('tipo/');
 
-			xhttpTipo.onreadystatechange = function(){
+			xhttpTipo.onreadystatechange = function(){ //cambiar a jquery
 				if(this.readyState == 4 && this.status == 200){
 					let datos = JSON.parse(xhttpTipo.response);
 					let tabla = document.querySelector('#panel_atributos');
@@ -204,6 +211,7 @@
 				}
 			}		
 		}
+	//}
 
   </script>
 </html>
