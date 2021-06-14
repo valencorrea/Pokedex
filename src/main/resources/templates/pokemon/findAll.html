@@ -76,10 +76,12 @@
 
 		var modo_diurno = true;
 		$("#contenidos_externos").hide(); 
-		//colorear_titulos("th");
-		//colorear_casillas("td");
+
 		colorear("th", "#ffa0bd");
 		colorear("td", "#ffe0e9");
+
+		cambiar_modo('#nocturno', '#696969', false);
+		cambiar_modo('#diurno', '#FFFFFF', true);		
 
 		function colorear(elemento, color){
         	$(elemento).mouseover(function(){
@@ -95,32 +97,14 @@
 	        });
         }
 
-/*        function colorear_casillas(elemento){
-			$(elemento).mouseover(function(){
-			    $(this).css("background-color", "#ffe0e9");
-			});
-			$(elemento).mouseout(function(){
-			    if(modo_diurno == true){        
-			        $(this).css("background-color", "#FFFFFF");
-			    }
-			    else{
-			        $(this).css("background-color", "#696969");   
-			    }
-			});        	
-        }*/
-
-	    $('#nocturno').click(function(){
-            $('td').css('background-color', '#696969');
-            $('th').css('background-color', '#696969');
-            $('body').css('background-color', '#696969');
-            modo_diurno = false;
-        });   
-        $('#diurno').click(function(){
-            $('td').css('background-color', '#FFFFFF');
-            $('th').css('background-color', '#FFFFFF');
-            $('body').css('background-color', '#FFFFFF');
-            modo_diurno = true;
-        });  
+        function cambiar_modo(boton, color, booleanModo){
+			$(boton).click(function(){
+	            $('td').css('background-color', color);
+	            $('th').css('background-color', color);
+	            $('body').css('background-color', color);
+	            modo_diurno = booleanModo;
+	        });
+        } 
 
 		$("#mostrar").on('click', function() {
 			$("#tabla_pokemones").slideDown();
