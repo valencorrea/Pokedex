@@ -53,8 +53,8 @@
 				 <tr>
 					<th>ID</th>
 					<th>NOMBRE</th>
-					<th id="caracts_evoluciones">NIVEL NECESARIO</th>
-					<th id="caracts_evoluciones">TIPO EVOLUCION</th>
+					<th id="nivel_evolucion">NIVEL NECESARIO</th>
+					<th id="tipo_evolucion">TIPO EVOLUCION</th>
 				</tr> 
 			</thead>
 			<tbody id="panel_atributos">
@@ -76,6 +76,8 @@
 	//$(document).ready(function() {
 
 		var modo_diurno = true;
+		$("#nivel_evolucion").hide(); // funciona como creo?
+		$("#tipo_evolucion").hide();
 
 		$("td").mouseover(function(){
             $(this).css("background-color", "#ffe0e9");
@@ -138,6 +140,8 @@
 
 
 		function traerTipos(){
+			$("#nivel_evolucion").hide(); 
+			$("#tipo_evolucion").hide();			
 			const xhttpTipo = new XMLHttpRequest();
 			xhttpTipo.open('GET', 'tipo/', true);
 			xhttpTipo.send();
@@ -162,6 +166,8 @@
 
 
 		function traerHabilidades(){
+			$("#nivel_evolucion").hide(); 
+			$("#tipo_evolucion").hide();
 			const xhttpHabilidad = new XMLHttpRequest();
 			xhttpHabilidad.open('GET', 'habilidad/', true);
 			xhttpHabilidad.send();
@@ -186,6 +192,8 @@
 
 
 		function traerEvoluciones(){
+			$("#nivel_evolucion").show(); 
+			$("#tipo_evolucion").show();
 			const xhttpEvolucion = new XMLHttpRequest();
 			xhttpEvolucion.open('GET', 'evolucion/', true);
 			xhttpEvolucion.send();
