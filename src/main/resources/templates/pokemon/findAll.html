@@ -7,64 +7,57 @@
 	</head>
   	<body>
 
-  	<h1 th:text="${title}"></h1>
+	  	<h1 th:text="${title}"></h1>
 
-	<button id="mostrar">mostrar pokemones</button>
-  	<button id="ocultar">ocultar pokemones</button>
+		<button id="mostrar">mostrar pokemones</button>
+	  	<button id="ocultar">ocultar pokemones</button>
 
-  	<br/>
-  	<table id="tabla_pokemones">
-	
-		<thead>
-			<tr>
-		  		<th>ID</th>
-			  	<th>NOMBRE</th>
-			  	<th>NIVEL DE ARRIBO</th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<tr th:each="pokemon: ${pokemones}">
-			  	<td th:text="${pokemon.getId()}"></td>
-			  	<td th:text="${pokemon.getNombre()}"></td>
-			  	<td th:text="${pokemon.getNivel()}"></td>
-			</tr>
-		</tbody>
-
-	</table>
-
-	<button id="diurno">Modo Diurno</button>
-	<button id="nocturno">Modo Nocturno</button>
-
-	<ul id="atributos_pokemon">
+	  	<br/>
+	  	<table id="tabla_pokemones">
 		
-		<button id="habilidad_boton">Ver habilidades</button> <!-- ver como agarrarme el objeto en vez del html con ajax -->
+			<thead>
+				<tr>
+			  		<th>ID</th>
+				  	<th>NOMBRE</th>
+				  	<th>NIVEL DE ARRIBO</th>
+				</tr>
+			</thead>
 
-		<button id="tipo_boton">Ver tipos</button> <!-- ver como agarrarme el objeto en vez del html con ajax -->
-		<button><a href="evolucion/">Ver evoluciones</a></button>
-		<!-- <button><a href="tipo/">Ver tipos</a></button>-->
-	</ul>
+			<tbody>
+				<tr th:each="pokemon: ${pokemones}">
+				  	<td th:text="${pokemon.getId()}"></td>
+				  	<td th:text="${pokemon.getNombre()}"></td>
+				  	<td th:text="${pokemon.getNivel()}"></td>
+				</tr>
+			</tbody>
 
-	<div id="contenidos_externos"></div>
+		</table>
 
-	<h1>Lista de habilidades</h1>
-	<table>
-		
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>NOMBRE</th>
-			</tr>
-		</thead>
+		<button id="diurno">Modo Diurno</button>
+		<button id="nocturno">Modo Nocturno</button>
 
-		<tbody id="lugar">
+		<ul id="atributos_pokemon">
 			
-		</tbody>
+			<button id="habilidad_boton">Ver habilidades</button> 
+			<button id="tipo_boton">Ver tipos</button> 
 
-	</table>
+			<button><a href="evolucion/">Ver evoluciones</a></button>
+			<!-- <button><a href="tipo/">Ver tipos</a></button>-->
+		</ul>
 
+		<div id="contenidos_externos"></div>
 
-	</body>
+		<h1 id="titulo_atributo"></h1> 
+		<table>
+			<thead>
+				 <tr>
+					<th>ID</th>
+					<th>NOMBRE</th>
+				</tr> 
+			</thead>
+			<tbody id="panel_atributos">
+			</tbody>
+		</table>
 
 	<script
 	  	src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -138,22 +131,18 @@
 
 
 		document.querySelector('#habilidad_boton').addEventListener('click', traerHabilidades);
-		//document.querySelector('#tipo_boton').addEventListener('click', traerTipos);
-		//document.querySelector('#habilidad_boton').addEventListener('click', traerDatos);
-
+		document.querySelector('#tipo_boton').addEventListener('click', traerTipos);
 		
-		function traerHabilidades(){
+		function traerTipos(){
+			const xhttpTipo = new XMLHttpRequest();
+			xhttpTipo.open('GET', 'tipo/', true);
+			xhttpTipo.send();
 
-			const xhttp = new XMLHttpRequest();
-			xhttp.open('GET', 'habilidad/', true);
-			xhttp.send();
-
-			xhttp.onreadystatechange = function(){
-
+			xhttpTipo.onreadystatechange = function(){
 				if(this.readyState == 4 && this.status == 200){
-					let datos = JSON.parse(xhttp.response);
-					let tabla = document.querySelector('#lugar');
-					//tabla.innerHTML = ''; //limpio para cada iteracion
+					let datos = JSON.parse(xhttpTipo.response);
+					let tabla = document.querySelector('#panel_atributos');
+					tabla.innerHTML = ''; 
 
 					for(let item of datos){
 						tabla.innerHTML += `
@@ -164,9 +153,31 @@
 						`
 					}
 				}
-
 			}
-		
+		}	
+
+
+		function traerHabilidades(){
+			const xhttpHabilidad = new XMLHttpRequest();
+			xhttpHabilidad.open('GET', 'habilidad/', true);
+			xhttpHabilidad.send();
+
+			xhttpHabilidad.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){
+					let datos = JSON.parse(xhttpHabilidad.response);
+					let tabla = document.querySelector('#panel_atributos');
+					tabla.innerHTML = ''; 
+
+					for(let item of datos){
+						tabla.innerHTML += `
+							<tr>
+								<td>${item.id}</td>
+								<td>${item.nombre}</td>
+							</tr>
+						`
+					}
+				}
+			}		
 		}
 
   </script>
