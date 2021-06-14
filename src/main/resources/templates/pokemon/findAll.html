@@ -41,8 +41,6 @@
 			<button id="habilidad_boton">Ver habilidades</button> 
 			<button id="tipo_boton">Ver tipos</button> 
 			<button id="evolucion_boton">Ver evoluciones</button> 
-
-			<!-- <button><a href="evolucion/">Ver evoluciones</a></button> -->
 		</ul>
 
 		<div id="contenidos_externos">
@@ -117,7 +115,6 @@
             modo_diurno = true;
         });  
 
-
 		$("#mostrar").on('click', function() {
 			$("#tabla_pokemones").slideDown();
 		});
@@ -126,18 +123,9 @@
 		});
 
 
-		$("#atributos_pokemon a").click(function(event){ // forma vieja
-			event.preventDefault();
-			var url = $(this).attr("href");
-
-			$("#contenidos_externos").load(url);
-		});
-
-
 		document.querySelector('#habilidad_boton').addEventListener('click', traerHabilidades);
 		document.querySelector('#tipo_boton').addEventListener('click', traerTipos);
 		document.querySelector('#evolucion_boton').addEventListener('click', traerEvoluciones);
-
 
 		function traerTipos(){
 			$("#contenidos_externos").show(); 
@@ -161,10 +149,21 @@
 							</tr>
 						`
 					}
+
+					$("td").mouseover(function(){
+			            $(this).css("background-color", "#ffe0e9");
+			        });
+			        $("td").mouseout(function(){
+			            if(modo_diurno == true){        
+			                $(this).css("background-color", "#FFFFFF");
+			            }
+			            else{
+			                $(this).css("background-color", "#696969");   
+			            }
+			        });
 				}
 			}
 		}	
-
 
 		function traerHabilidades(){
 			$("#contenidos_externos").show(); 
@@ -188,10 +187,22 @@
 							</tr>
 						`
 					}
+
+					$("td").mouseover(function(){
+			            $(this).css("background-color", "#ffe0e9");
+			        });
+			        $("td").mouseout(function(){
+			            if(modo_diurno == true){        
+			                $(this).css("background-color", "#FFFFFF");
+			            }
+			            else{
+			                $(this).css("background-color", "#696969");   
+			            }
+			        });
+
 				}
 			}		
 		}
-
 
 		function traerEvoluciones(){
 			$("#contenidos_externos").show(); 
@@ -217,6 +228,19 @@
 							</tr>
 						`
 					}
+
+					$("td").mouseover(function(){
+			            $(this).css("background-color", "#ffe0e9");
+			        });
+			        $("td").mouseout(function(){
+			            if(modo_diurno == true){        
+			                $(this).css("background-color", "#FFFFFF");
+			            }
+			            else{
+			                $(this).css("background-color", "#696969");   
+			            }
+			        });
+					
 				}
 			}		
 		}
