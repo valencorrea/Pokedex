@@ -83,8 +83,6 @@
 		cambiar_modo('#nocturno', '#696969', false);
 		cambiar_modo('#diurno', '#FFFFFF', true);		
 
-		//traerNombrePokemon();
-
 		function colorear(elemento, color){
         	$(elemento).mouseover(function(){
 	            $(this).css("background-color", color);
@@ -119,8 +117,6 @@
 		document.querySelector('#tipo_boton').addEventListener('click', traerTipos);
 		document.querySelector('#evolucion_boton').addEventListener('click', traerEvoluciones);
 
-		//document.querySelector('#nombre_pokemon').addEventListener('click', traerNombrePokemon);
-
 		function inicializar_request(ruta){
 			const xhttpTipo = new XMLHttpRequest();
 			xhttpTipo.open('GET', ruta, true);
@@ -129,9 +125,10 @@
 		}
 
 		$("#nombre_pokemon tr").find('td:eq(1)').on('click', function(){ // selecciono solo la columna de los nombres
-			alert("HOLA");
+			var nombre = $(this).html();
+			alert(nombre);
 		});
-
+		
 		function traerTipos(){
 			$("#contenidos_externos").show(); 
 			$("#nivel_evolucion").hide(); 
