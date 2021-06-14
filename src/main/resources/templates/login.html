@@ -9,17 +9,14 @@
     <body>
 
         <h1 id="titulo">Login</h1>
-        <form method="post" th:action="@{/login}">
+         <form method="post" th:action="@{/login}">
             <label for="username">Username:</label>
             <input type="text" name="username" id="username"/>
             <br/>
             <label for="password">Password:</label>
             <input type="password" name="password" id="password" title="Password must be 8 characters including 1 uppercase letter, 1 lowercase letter and numeric characters" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
             <input id="botoningreso" type="submit" value="Login" />
-        </form>
-
-        <input type="text" id="test" value="ingresar nombre usuario" style="color: grey;">
-        <button id="boton">Verificar usuario</button>
+        </form> 
 
         <button id="mostrar">mostrar titulo</button>
         <button id="ocultar">ocultar titulo</button>

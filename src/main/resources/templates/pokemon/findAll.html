@@ -59,6 +59,8 @@
 			</table>
 		</div>
 
+		<div id="ubicacion_nombre_poke"></div>
+
 	</body>
 	<script
 	  	src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -127,6 +129,28 @@
 		$("#nombre_pokemon tr").find('td:eq(1)').on('click', function(){ // selecciono solo la columna de los nombres
 			var nombre = $(this).html();
 			alert(nombre);
+
+			/*const xhttpNombrePokemon = inicializar_request('/');
+			xhttpNombrePokemon.getParameter(nombre);
+
+			xhttpTipo.onreadystatechange = function(){ 
+				if(this.readyState == 4 && this.status == 200){
+					let datos = JSON.parse(xhttpNombrePokemon.response);
+					let tabla = document.querySelector('#ubicacion_nombre_poke');
+					//tabla.innerHTML = ''; 
+				}
+			}*/
+
+			/*.ajax.request({
+				url: 'http: // localhost: 9090 / pokemon', // URL de solicitud (JSP / Servlet)
+				jsonData: JSON.encode(nombre), // parámetros de formato JSON
+				
+				success: function (nombre) {
+					alert("hasta aca va ok");
+					//var respText = util.JSON.decode (nombre.responseText); // Decodificar datos en formato JSON en un objeto
+					//Msg.alert ('Sugerencia', respText.nombre);
+				}
+		   });*/
 		});
 		
 		function traerTipos(){
