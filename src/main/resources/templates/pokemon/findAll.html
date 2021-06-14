@@ -76,31 +76,36 @@
 
 		var modo_diurno = true;
 		$("#contenidos_externos").hide(); 
+		colorear_titulos("th");
+		colorear_casillas("td");
 
-		$("td").mouseover(function(){
-            $(this).css("background-color", "#ffe0e9");
-        });
-        $("td").mouseout(function(){
-            if(modo_diurno == true){        
-                $(this).css("background-color", "#FFFFFF");
-            }
-            else{
-                $(this).css("background-color", "#696969");   
-            }
-        });
+		function colorear_titulos(elemento){
+        	$(elemento).mouseover(function(){
+	            $(this).css("background-color", "#ffa0bd");
+	        });
+	        $(elemento).mouseout(function(){
+	            if(modo_diurno == true){        
+	                $(this).css("background-color", "#FFFFFF");
+	            }
+	            else{
+	                $(this).css("background-color", "#696969");   
+	            }
+	        });
+        }
 
-
-        $("th").mouseover(function(){
-            $(this).css("background-color", "#ffa0bd");
-        });
-        $("th").mouseout(function(){
-            if(modo_diurno == true){        
-                $(this).css("background-color", "#FFFFFF");
-            }
-            else{
-                $(this).css("background-color", "#696969");   
-            }
-        });
+        function colorear_casillas(elemento){
+			$(elemento).mouseover(function(){
+			    $(this).css("background-color", "#ffe0e9");
+			});
+			$(elemento).mouseout(function(){
+			    if(modo_diurno == true){        
+			        $(this).css("background-color", "#FFFFFF");
+			    }
+			    else{
+			        $(this).css("background-color", "#696969");   
+			    }
+			});        	
+        }
 
 	    $('#nocturno').click(function(){
             $('td').css('background-color', '#696969');
@@ -149,18 +154,7 @@
 							</tr>
 						`
 					}
-
-					$("td").mouseover(function(){
-			            $(this).css("background-color", "#ffe0e9");
-			        });
-			        $("td").mouseout(function(){
-			            if(modo_diurno == true){        
-			                $(this).css("background-color", "#FFFFFF");
-			            }
-			            else{
-			                $(this).css("background-color", "#696969");   
-			            }
-			        });
+					colorear_casillas("td");
 				}
 			}
 		}	
@@ -187,19 +181,7 @@
 							</tr>
 						`
 					}
-
-					$("td").mouseover(function(){
-			            $(this).css("background-color", "#ffe0e9");
-			        });
-			        $("td").mouseout(function(){
-			            if(modo_diurno == true){        
-			                $(this).css("background-color", "#FFFFFF");
-			            }
-			            else{
-			                $(this).css("background-color", "#696969");   
-			            }
-			        });
-
+					colorear_casillas("td");
 				}
 			}		
 		}
@@ -228,19 +210,7 @@
 							</tr>
 						`
 					}
-
-					$("td").mouseover(function(){
-			            $(this).css("background-color", "#ffe0e9");
-			        });
-			        $("td").mouseout(function(){
-			            if(modo_diurno == true){        
-			                $(this).css("background-color", "#FFFFFF");
-			            }
-			            else{
-			                $(this).css("background-color", "#696969");   
-			            }
-			        });
-					
+					colorear_casillas("td");
 				}
 			}		
 		}
