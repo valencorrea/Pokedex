@@ -40,9 +40,9 @@
 			
 			<button id="habilidad_boton">Ver habilidades</button> 
 			<button id="tipo_boton">Ver tipos</button> 
+			<button id="evolucion_boton">Ver evoluciones</button> 
 
-			<button><a href="evolucion/">Ver evoluciones</a></button>
-			<!-- <button><a href="tipo/">Ver tipos</a></button>-->
+			<!-- <button><a href="evolucion/">Ver evoluciones</a></button> -->
 		</ul>
 
 		<div id="contenidos_externos"></div>
@@ -63,7 +63,7 @@
 	  	src="https://code.jquery.com/jquery-3.6.0.min.js"
 	  	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 		crossorigin="anonymous">
-	</script><!--con esto agrego jquery-->
+	</script>
 
 	<script
 		src="https://code.jquery.com/jquery-3.2.1.js"
@@ -132,7 +132,8 @@
 
 		document.querySelector('#habilidad_boton').addEventListener('click', traerHabilidades);
 		document.querySelector('#tipo_boton').addEventListener('click', traerTipos);
-		
+		document.querySelector('#evolucion_boton').addEventListener('click', traerEvoluciones);
+
 		function traerTipos(){
 			const xhttpTipo = new XMLHttpRequest();
 			xhttpTipo.open('GET', 'tipo/', true);
@@ -173,6 +174,32 @@
 							<tr>
 								<td>${item.id}</td>
 								<td>${item.nombre}</td>
+							</tr>
+						`
+					}
+				}
+			}		
+		}
+
+
+		function traerEvoluciones(){
+			const xhttpEvolucion = new XMLHttpRequest();
+			xhttpEvolucion.open('GET', 'evolucion/', true);
+			xhttpEvolucion.send();
+
+			xhttpEvolucion.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){
+					let datos = JSON.parse(xhttpEvolucion.response);
+					let tabla = document.querySelector('#panel_atributos');
+					tabla.innerHTML = ''; 
+
+					for(let item of datos){
+						tabla.innerHTML += `
+							<tr>
+								<td>${item.id}</td>
+								<td>${item.nombre}</td>
+								<td>${item.nivelNecesario}</td>
+								<td>${item.tipoEvolucion}</td>
 							</tr>
 						`
 					}
