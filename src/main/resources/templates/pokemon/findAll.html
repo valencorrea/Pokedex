@@ -53,12 +53,14 @@
 				 <tr>
 					<th>ID</th>
 					<th>NOMBRE</th>
+					<th id="caracts_evoluciones">NIVEL NECESARIO</th>
+					<th id="caracts_evoluciones">TIPO EVOLUCION</th>
 				</tr> 
 			</thead>
 			<tbody id="panel_atributos">
 			</tbody>
 		</table>
-
+	</body>
 	<script
 	  	src="https://code.jquery.com/jquery-3.6.0.min.js"
 	  	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -134,6 +136,7 @@
 		document.querySelector('#tipo_boton').addEventListener('click', traerTipos);
 		document.querySelector('#evolucion_boton').addEventListener('click', traerEvoluciones);
 
+
 		function traerTipos(){
 			const xhttpTipo = new XMLHttpRequest();
 			xhttpTipo.open('GET', 'tipo/', true);
@@ -191,7 +194,7 @@
 				if(this.readyState == 4 && this.status == 200){
 					let datos = JSON.parse(xhttpEvolucion.response);
 					let tabla = document.querySelector('#panel_atributos');
-					tabla.innerHTML = ''; 
+					tabla.innerHTML = '';
 
 					for(let item of datos){
 						tabla.innerHTML += `

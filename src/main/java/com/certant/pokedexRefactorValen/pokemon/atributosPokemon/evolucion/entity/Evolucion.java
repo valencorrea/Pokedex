@@ -42,8 +42,10 @@ public class Evolucion implements Serializable {
     }
 
     public String getNombre() {
-        return nombre;
+        return nombre;//
+
     }
+
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
