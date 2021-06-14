@@ -118,13 +118,19 @@
 		document.querySelector('#tipo_boton').addEventListener('click', traerTipos);
 		document.querySelector('#evolucion_boton').addEventListener('click', traerEvoluciones);
 
+		function inicializar_request(ruta){
+			const xhttpTipo = new XMLHttpRequest();
+			xhttpTipo.open('GET', ruta, true);
+			xhttpTipo.send();
+			return xhttpTipo;
+		}
+
 		function traerTipos(){
 			$("#contenidos_externos").show(); 
 			$("#nivel_evolucion").hide(); 
-			$("#tipo_evolucion").hide();			
-			const xhttpTipo = new XMLHttpRequest();
-			xhttpTipo.open('GET', 'tipo/', true);
-			xhttpTipo.send();
+			$("#tipo_evolucion").hide();	
+
+			const xhttpTipo = inicializar_request('tipo/');
 
 			xhttpTipo.onreadystatechange = function(){
 				if(this.readyState == 4 && this.status == 200){
@@ -149,9 +155,8 @@
 			$("#contenidos_externos").show(); 
 			$("#nivel_evolucion").hide(); 
 			$("#tipo_evolucion").hide();
-			const xhttpHabilidad = new XMLHttpRequest();
-			xhttpHabilidad.open('GET', 'habilidad/', true);
-			xhttpHabilidad.send();
+			
+			const xhttpHabilidad = inicializar_request('habilidad/');
 
 			xhttpHabilidad.onreadystatechange = function(){
 				if(this.readyState == 4 && this.status == 200){
@@ -176,9 +181,8 @@
 			$("#contenidos_externos").show(); 
 			$("#nivel_evolucion").show(); 
 			$("#tipo_evolucion").show();
-			const xhttpEvolucion = new XMLHttpRequest();
-			xhttpEvolucion.open('GET', 'evolucion/', true);
-			xhttpEvolucion.send();
+
+			const xhttpEvolucion = inicializar_request('evolucion/');
 
 			xhttpEvolucion.onreadystatechange = function(){
 				if(this.readyState == 4 && this.status == 200){
