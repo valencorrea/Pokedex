@@ -1,67 +1,68 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<center>
+		<head>
+			<meta charset="UTF-8">
+			<title th:text="${title}"></title>
+		</head>
+	  	<body>
 
-	<head>
-		<meta charset="UTF-8">
-		<title th:text="${title}"></title>
-	</head>
-  	<body>
+		  	<h1 th:text="${title}"></h1>
 
-	  	<h1 th:text="${title}"></h1>
+			<button id="mostrar">mostrar pokemones</button>
+		  	<button id="ocultar">ocultar pokemones</button>
 
-		<button id="mostrar">mostrar pokemones</button>
-	  	<button id="ocultar">ocultar pokemones</button>
-
-	  	<br/>
-	  	<table id="tabla_pokemones">
-		
-			<thead>
-				<tr>
-			  		<th>ID</th>
-				  	<th>NOMBRE</th>
-				  	<th>NIVEL DE ARRIBO</th>
-				</tr>
-			</thead>
-
-			<tbody id="nombre_pokemon">
-				<tr th:each="pokemon: ${pokemones}">
-				  	<td th:text="${pokemon.getId()}"></td>
-				  	<td id="nombre" th:text="${pokemon.getNombre()}"></td>
-				  	<td th:text="${pokemon.getNivel()}"></td>
-				</tr>
-			</tbody>
-
-		</table>
-
-		<button id="diurno">Modo Diurno</button>
-		<button id="nocturno">Modo Nocturno</button>
-
-		<ul id="atributos_pokemon">
+		  	<br/>
+		  	<table id="tabla_pokemones">
 			
-			<button id="habilidad_boton">Ver habilidades</button> 
-			<button id="tipo_boton">Ver tipos</button> 
-			<button id="evolucion_boton">Ver evoluciones</button> 
-		</ul>
-
-		<div id="contenidos_externos">
-			<h1 id="titulo_atributo"></h1> 
-			<table>
 				<thead>
-					 <tr>
-						<th>ID</th>
-						<th>NOMBRE</th>
-						<th id="nivel_evolucion">NIVEL NECESARIO</th>
-						<th id="tipo_evolucion">TIPO EVOLUCION</th>
-					</tr> 
+					<tr>
+				  		<th>ID</th>
+					  	<th>NOMBRE</th>
+					  	<th>NIVEL DE ARRIBO</th>
+					</tr>
 				</thead>
-				<tbody id="panel_atributos">
+
+				<tbody id="nombre_pokemon">
+					<tr th:each="pokemon: ${pokemones}">
+					  	<td th:text="${pokemon.getId()}"></td>
+					  	<td id="nombre" th:text="${pokemon.getNombre()}"></td>
+					  	<td th:text="${pokemon.getNivel()}"></td>
+					</tr>
 				</tbody>
+
 			</table>
-		</div>
 
-		<div id="ubicacion_nombre_poke"></div>
+			<button id="diurno">Modo Diurno</button>
+			<button id="nocturno">Modo Nocturno</button>
 
-	</body>
+			<ul id="atributos_pokemon">
+				
+				<button id="habilidad_boton">Ver habilidades</button> 
+				<button id="tipo_boton">Ver tipos</button> 
+				<button id="evolucion_boton">Ver evoluciones</button> 
+			</ul>
+
+			<div id="contenidos_externos">
+				<h1 id="titulo_atributo"></h1> 
+				<table>
+					<thead>
+						 <tr>
+							<th>ID</th>
+							<th>NOMBRE</th>
+							<th id="nivel_evolucion">NIVEL NECESARIO</th>
+							<th id="tipo_evolucion">TIPO EVOLUCION</th>
+						</tr> 
+					</thead>
+					<tbody id="panel_atributos">
+					</tbody>
+				</table>
+			</div>
+
+			<div id="ubicacion_nombre_poke"></div>
+
+		</body>
+	</center>
 	<script
 	  	src="https://code.jquery.com/jquery-3.6.0.min.js"
 	  	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -126,9 +127,8 @@
 			return xhttpTipo;
 		}
 
-		$("#nombre_pokemon tr").find('td:eq(0)').on('click', function(evento){ // selecciono solo la columna de los IDS
-			//evento.preventDefault();
-			var idPokemon = $(this).html(); 
+		$("#nombre_pokemon tr").find('td:eq(0)').on('click', function(){ 
+			var idPokemon = $(this).html();
 			$.get('/pokemon/nombrePokemon/', {id: idPokemon}, function(respuestaServidor){				
 				$("#ubicacion_nombre_poke").html(respuestaServidor);
 			});

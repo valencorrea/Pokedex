@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+    <center>
+        <head>
+            <meta charset="UTF-8">
+            <title>Login</title>
+        </head>
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Login</title>
-    </head>
+        <body>
 
-    <body>
+            <h1 id="titulo">Login</h1>
+             <form method="post" th:action="@{/login}">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username"/>
+                <br/>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" title="Password must be 8 characters including 1 uppercase letter, 1 lowercase letter and numeric characters" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
+                <input id="botoningreso" type="submit" value="Login" />
+            </form> 
 
-        <h1 id="titulo">Login</h1>
-         <form method="post" th:action="@{/login}">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username"/>
-            <br/>
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" title="Password must be 8 characters including 1 uppercase letter, 1 lowercase letter and numeric characters" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
-            <input id="botoningreso" type="submit" value="Login" />
-        </form> 
+            <button id="mostrar">mostrar titulo</button>
+            <button id="ocultar">ocultar titulo</button>
 
-        <button id="mostrar">mostrar titulo</button>
-        <button id="ocultar">ocultar titulo</button>
-
-    </body>
-
+        </body>
+    </center>
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
