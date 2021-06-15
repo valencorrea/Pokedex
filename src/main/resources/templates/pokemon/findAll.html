@@ -143,7 +143,7 @@
 			.fail(function(){
 				$("#ubicacion_nombre_poke").html("no funciona");
 			});*/
-			$.get('/pokemon/nombrePokemon/', function(respuestaServidor){				
+			$.get('/pokemon/nombrePokemon/', {id: idPokemon}, function(respuestaServidor){				
 //				$("#ubicacion_nombre_poke").html(respuestaServidor);
 				$("#ubicacion_nombre_poke").html(respuestaServidor);
 			});

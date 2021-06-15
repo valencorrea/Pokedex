@@ -30,13 +30,13 @@ public class PokemonController {
 
     @ResponseBody
     @GetMapping("/nombrePokemon/")
-    //public String mostrarNombreEnNavegador(Long id) throws Throwable {
-    public String mostrarNombreEnNavegador() throws Throwable {
-        //Pokemon pokemon = pokemonService.findById(id);
+    public String mostrarNombreEnNavegador(Long id) throws Throwable {
+    //public String mostrarNombreEnNavegador() throws Throwable {
+        Pokemon pokemon = pokemonService.findById(id);
         //System.out.print("\n" +  id + "\n");
-        //return "El pokemon seleccionado es: " + pokemon.getNombre();
+        return ("El pokemon seleccionado es: " + pokemon.getNombre());
 
-        return "funciona";
+        //return "funciona";
     }
 
 /*    @GetMapping("/nombrePokemon")
