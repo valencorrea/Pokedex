@@ -31,22 +31,7 @@ public class PokemonController {
     @ResponseBody
     @GetMapping("/nombrePokemon/")
     public String mostrarNombreEnNavegador(Long id) throws Throwable {
-    //public String mostrarNombreEnNavegador() throws Throwable {
         Pokemon pokemon = pokemonService.findById(id);
-        //System.out.print("\n" +  id + "\n");
         return ("El pokemon seleccionado es: " + pokemon.getNombre());
-
-        //return "funciona";
     }
-
-/*    @GetMapping("/nombrePokemon")
-    public String findById(@PathVariable(value = "id") Long id, Model model) throws Throwable {
-        Pokemon pokemon = pokemonService.findById(id);
-        return "El pokemon seleccionado es: " + pokemon.getNombre();
-    }*/
-
-    // Si está utilizando un Servlet de Java, necesita crear un HttpServlet personalizado,
-    // que debe implementar las funciones doGet(HttpServletRequest req, HttpServletResponse resp) y
-    // doPost(HttpRequest req, HttpResponse resp). Una vez que asigne un nombre de dominio específico (contextpath/FirstServlet en su ejemplo) a
-    // su clase de servlet personalizada (en su archivo web.xml), el servlet enrutará automáticamente cualquier get o post Solicita a tus funciones doGet o doPost.
 }

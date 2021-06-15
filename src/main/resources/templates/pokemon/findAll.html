@@ -127,51 +127,12 @@
 		}
 
 		$("#nombre_pokemon tr").find('td:eq(0)').on('click', function(evento){ // selecciono solo la columna de los IDS
-			evento.preventDefault();
+			//evento.preventDefault();
 			var idPokemon = $(this).html(); 
-			//var idPokemon = $(this).serialize();
-			/*$.ajax({//la request
-				"method":"GET",
-				"url":"/pokemon/nombrePokemon/",
-				dataType:'json',
-				"data":idPokemon
-			}).done(function(respuestaServidor){//se ejecuta cuando es success
-				$("#ubicacion_nombre_poke").html("funciona");
-				//alert(idPokemon);
-				//$("#ubicacion_nombre_poke").html(respuestaServidor);
-			})
-			.fail(function(){
-				$("#ubicacion_nombre_poke").html("no funciona");
-			});*/
 			$.get('/pokemon/nombrePokemon/', {id: idPokemon}, function(respuestaServidor){				
-//				$("#ubicacion_nombre_poke").html(respuestaServidor);
 				$("#ubicacion_nombre_poke").html(respuestaServidor);
 			});
 		});
-
-
-			/*const xhttpNombrePokemon = inicializar_request('/');
-			xhttpNombrePokemon.getParameter(nombre);
-
-			xhttpTipo.onreadystatechange = function(){ 
-				if(this.readyState == 4 && this.status == 200){
-					let datos = JSON.parse(xhttpNombrePokemon.response);
-					let tabla = document.querySelector('#ubicacion_nombre_poke');
-					//tabla.innerHTML = ''; 
-				}
-			}*/
-
-			/*.ajax.request({
-				url: 'http: // localhost: 9090 / pokemon', // URL de solicitud (JSP / Servlet)
-				jsonData: JSON.encode(nombre), // parámetros de formato JSON
-				
-				success: function (nombre) {
-					alert("hasta aca va ok");
-					//var respText = util.JSON.decode (nombre.responseText); // Decodificar datos en formato JSON en un objeto
-					//Msg.alert ('Sugerencia', respText.nombre);
-				}
-		   });*/
-		//});
 		
 		function traerTipos(){
 			$("#contenidos_externos").show(); 
