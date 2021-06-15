@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,12 +28,21 @@ public class PokemonController {
         return "pokemon/findAll";
     }
 
-    /*@ResponseBody
-    @GetMapping("/")
-    public String mostrarNombreNavegador(String nombre){
-        List<Pokemon> pokemones = pokemonService.findAll();
-        String infoNombre = "El pokemon seleccionado es: " + nombre;
-        return infoNombre;
+    @ResponseBody
+    @GetMapping("/nombrePokemon/")
+    //public String mostrarNombreEnNavegador(Long id) throws Throwable {
+    public String mostrarNombreEnNavegador() throws Throwable {
+        //Pokemon pokemon = pokemonService.findById(id);
+        //System.out.print("\n" +  id + "\n");
+        //return "El pokemon seleccionado es: " + pokemon.getNombre();
+
+        return "funciona";
+    }
+
+/*    @GetMapping("/nombrePokemon")
+    public String findById(@PathVariable(value = "id") Long id, Model model) throws Throwable {
+        Pokemon pokemon = pokemonService.findById(id);
+        return "El pokemon seleccionado es: " + pokemon.getNombre();
     }*/
 
     // Si está utilizando un Servlet de Java, necesita crear un HttpServlet personalizado,
