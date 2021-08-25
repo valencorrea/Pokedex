@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <head th:replace="layout/layout :: head"></head>
+</head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+<br/>
+<div class="container">
+    <h1 th:text="${title}"></h1>
+    <form th:action="@{agregar/}" method="post" th:object="${pokemon}">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Ingrese el nombre: </label>
+            <input type="text" th:field="*{nombre}"/>
+        </div>
+        <div>
+            <label>Ingrese el nivel: </label>
+            <input type="number" min="1" th:field="*{nivel}"/>
+        </div>
+        <ul>
+            <li th:each="habilidad : ${todasHabilidades}">
+                <div>
+                    <input type="checkbox" th:field="*{habilidades}" th:value="${habilidad.id}">
+                    <label th:text="${habilidad.nombre}"></label>
+                </div>
+            </li>
+        </ul>
+
+        <ul>
+            <li th:each="tipo : ${todosTipos}">
+                <div>
+                    <input type="checkbox" th:field="*{tipos}" th:value="${tipo.id}">
+                    <label th:text="${tipo.nombre}"></label>
+                </div>
+            </li>
+        </ul>
+
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <head th:replace="layout/layout :: head"></head>
+</head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <br/>
+        <h3 th:text="${title}"></h3>
+
+
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+
+                <th scope="col">nombre</th>
+                <th scope="col">listar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="entrenador: ${entrenadores}">
+                <!-- <td th:text="${entrenador.getId()}"></td> -->
+                <td th:text="${entrenador.getNombre()}"></td>
+                <td><a th:href="@{'/entrenador/'+${entrenador.getId()}+'/pokemones/'}" th:text="listar" class="btn btn-primary active"></a></td>
+            </tr>
+            </tbody>
+
+        </table>
+        </div>
+    </div>
+</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

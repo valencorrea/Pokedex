@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+
+    <head th:replace="layout/layout :: head"></head>
+</head>
+
+<body>
+    <header th:replace="layout/layout :: header"></header>
+    <h1 th:text="${title}"></h1>
+    <br />
+    <form th:action="@{guardarPokemon/}" th:object="${pokemonEntrenado}" method="post" enctype="multipart/form-data">
+        <label>Selecione pokemon
+            <select  th:field="*{idPokemon}">
+                <option th:each="pokemon: ${pokemones}" th:id="${pokemon.getId()}" th:value="${pokemon.getId()}" th:text="${pokemon.getNombre()}">
+                </option>
+            </select>
+        </label><br>
+        <label>Nivel
+            <input type="number" th:field="*{nivelActual}">
+        </label>
+
+        <input type="submit" value="Agregar">
+    </form>
+
+    <footer th:replace="layout/layout :: footer"></footer>
+</body>
+
+</html>

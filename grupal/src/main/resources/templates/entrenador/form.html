@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+<form th:action="@{guardar/}" th:object="${entrenador}" method="post" enctype="multipart/form-data">
+    <div>
+        <input type="hidden" th:field="*{id}"/> <!-- para levantar en id pasado en caso de edición-->
+        <label> Nombre
+            <input type="text" th:field="*{nombre}"/>
+        </label>
+    </div>
+    <input type="submit" value="Guardar Entrenador"/>
+</form>
+</body>
+</html>

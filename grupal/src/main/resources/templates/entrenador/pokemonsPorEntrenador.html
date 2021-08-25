@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+<br/>
+<div>
+    <label>ID: </label>
+    <label th:text="${entrenador.getId()}"></label>
+</div>
+<div>
+    <label>Nombre: </label>
+    <label th:text="${entrenador.getNombre()}"></label>
+</div>
+<div>
+    <a th:href="@{'/entrenador/'+${entrenador.getId()}+'/nuevoPokemon/'}" th:text="addPokemon"></a>
+</div>
+<br/>
+
+<table border="3" cellspacing="10" cellpadding="10">
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Nivel Actual</th>
+        <th>Tipos</th>
+        <th>Habilidades</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pokemonEntrenamiento: ${entrenador.getPokemonsEntrenamiento()}">
+        <td th:text="${pokemonEntrenamiento.getPokemon().getNombre()}"></td>
+        <td th:text="${pokemonEntrenamiento.getNivelActual()}"></td>
+        <td>
+            <dl th:each="tipo: ${pokemonEntrenamiento.getPokemon().getTipos()}">
+                <dd th:text="${tipo.getNombre()}"></dd>
+            </dl>
+
+        </td>
+        <td>
+            <dl th:each="habilidad: ${pokemonEntrenamiento.getPokemon().getHabilidades()}">
+                <dd th:text="${habilidad.getNombre()}"></dd>
+            </dl>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
